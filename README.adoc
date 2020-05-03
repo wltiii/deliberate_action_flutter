@@ -1,0 +1,103 @@
+= Deliberate Action
+Bill Turner
+:toc:
+:toc-placement!:
+
+toc::[]
+
+== Overview ==
+Deliberate Practice, Deliberate Action
+....Refine your mental models....
+
+I am a software developer. This project was initially motivated by the practice of _Retrospectives_. For
+the unitiated, retrospectives are done at the end of sprints or iterations. You are supposed to reflect
+upon what was done so that you and your team could improve their practice. I am leaving much out here, of
+course. I became somewhat frustrated for people, including myself, did not remember many details. I felt
+the level of learning I hoped for was just not there. Except for the biggest problems, there just was not
+enough detail. I decided it was wise to capture and reflect in much smaller chunks of time. Reflecting on
+what you have just done seems to be a proven strategy, one that has application well beyond the realm of
+software development.
+
+In the early days of Agile, you would often hear an argument about whether software development is an
+art or a craft. In my opinion, it is neither. It seems to me to more closely resemble a learning activity,
+one that is closer to scientific experimentation. You have a hypothesis of how something should work,
+you build a test apparatus, and you test the hypotheses. Okay - so not a perfect analogy.
+
+Listening to colleagues during the midst of a project, or even something as small as a story or task, you
+will often hear them talk of what they learned. I believe this is true of many activities. *We are always
+learning.* This tool helps to focus that learning.
+
+This tool attempts to incorporate deliberate practice with any learning activity. It creates a feedback loop
+for learning and practice sessions. Thinking about what you could have done better is the part of the deliberative
+process. The other is having that fresh in your mind as you begin in your next session. Over time, it should be
+possible to see patterns.
+
+While I don't know if there is great evidence supporting the Pomodoro like short iterations and breaks, it
+feels right. Perhaps that is the software engineer in me for I believe things should be kept as simple as
+possible. Planning activities that are of short duration should help foster a laser like focus on what
+can be achieved, keeping them simple, understandable, unsurprising. And, importantly, easy to reflect
+upon.
+
+Each of these short sessions are followed by, what I call, After Action reports - a term borrowed from
+the military. They allow you to consider what happened, what you want to reinforce and what you can do
+to improve. This is the reflection activity.
+
+I have many further thoughts about how this should eventually work and look. But, for now, *I am trying to
+keep it simple so that I may _learn_, _reflect_ and modify my _practice_.*
+
+=== References and other resources
+* https://www.apa.org/monitor/2018/06/good-timing[Chronotypes]
+* https://www.nytimes.com/2011/01/21/science/21memory.html[Have a learning template? Study, practice, test?]
+* When: The Scientific Secrets of Perfect Timing by Daniel H. Pink
+* Peak: Secrets from the New Science of Expertise by Anders Ericsson and Robert Pool
+* https://www.estherderby.com/give-yourself-a-gift-reflection-time/[Give Yourself a Gift: Reflection Time]
+* https://www.youtube.com/watch?v=f2O6mQkFiiw[How To Practice Effectively... For Just About Anything]
+* https://www.youtube.com/watch?v=KlPmfgRJ_Y0[Ultimate Guide To Building New Habits - Atomic Habits book review (part 1)]
+* https://www.youtube.com/watch?v=vOQd9Uwpu5E[Ultimate Guide To Building New Habits - Atomic Habits book review (part 2)]
+* https://www.youtube.com/watch?v=Q8ApZXWgJq4&t=30s[James Clear - Atomic Habits: How Tiny Changes Create Remarable Results (part 1)]
+* https://www.youtube.com/watch?v=QUndnWBR0A0&t=49s[How to Take Notes | Science-Based Strategies to Earn Perfect Grades]
+
+
+== Getting Started
+. Not yet defined
+
+== Considerations For Future Releases ==
+. A goal setting template? How would that work?
+. Works on multiple platforms:
+.. Works on both smart phones and web pages.
+.. Data updated on one device is immediately propogated to all devices.
+. Provides an implementation of related task (activity) and time management practices:
+.. Pomodoro planning
+.. Urgent/Important matrix - (Eisenhower & Covey)
+.. After action report
+.. Time Tracking
+.. Incorporates knowledge of Chronotypes
+. Activities that
+.. Contain zero or more sub-activites
+.. Time recording at any level
+. Configurable:
+.. Pomodoro interval lengths
+.. Features used in activity
+.. Activities can be scheduled with specific start/stop times, complete with alarms.
+.. Templates exist to quickly setup various types of activities.
+... Workday templates, for example, could have time allotted to recurring/regular activities.
+. Integrate with google calendars
+. Allows for planning and tracking of many sessions of a given type (templated)
+. Allows for multiple people to work/share an activity
+. Allows for reporting of various types
+
+
+== Ideas, Issues and Opportunities ==
+None that are not listed above.
+
+== Version 0.0.1 (202--05-03)
+.Release highlights
+Initial release
+
+.Other additions and changes
+- none
+
+
+.Bug fixes
+- none
+
