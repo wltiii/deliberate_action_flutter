@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'domain/activity.dart';
-import 'stopwatch.dart';
+import 'activity-clock.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/home';
@@ -84,7 +84,7 @@ class _Home extends State<Home> {
                 _activity.allottedDuration = _actionMinutes;
                 Navigator.pushNamed(
                   context,
-                  Stopwatch.routeName,
+                  ActivityClock.routeName,
                   arguments: _activity
                 );
 //                if (_formKey.currentState.validate()) {

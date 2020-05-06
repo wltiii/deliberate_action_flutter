@@ -1,7 +1,7 @@
 import 'package:deliberate_action_flutter/src/analysis.dart';
 import 'package:flutter/material.dart';
 import 'src/home.dart';
-import 'src/stopwatch.dart';
+import 'src/activity-clock.dart';
 import 'src/analysis.dart';
 
 void main() => runApp(MyApp());
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/" route, build the FirstScreen widget.
         Home.routeName: (context) => Home(title: appTitle),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        Stopwatch.routeName: (context) => Stopwatch(),
+        ActivityClock.routeName: (context) => ActivityClock(),
         Analysis.routeName: (context) => Analysis(),
       },
     );
