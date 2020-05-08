@@ -18,32 +18,30 @@ class ActivityClock extends StatefulWidget {
 }
 
 class _ActivityClock extends State<ActivityClock> {
-  Timer timer;
-  Duration timeRemaining = new Duration(minutes: activity.allottedDuration);
+  Timer _timer;
+  Duration _timeRemaining;
   Duration timeout = const Duration(seconds: 1);
-//  Duration ms = const Duration(milliseconds: 1);
+
+  @override
+  void initState() {
+    _timer =  new Timer.periodic(timeout, handleTimerEvent);
+    _timeRemaining = new Duration(minutes: activity.allottedDuration);
+  }
 
   startTimer() {
-
-//     TODO the following comes from https://api.flutter.dev/flutter/dart-async/Timer-class.html but what is milliseconds?
-//    var duration = milliseconds == null ? timeout : ms * milliseconds;
-    timer =  new Timer.periodic(timeout, handleTimerEvent);
-//    timer =  new Timer.periodic(new Duration(seconds: 1), (time) {
-//      print('Something');
-//
-//    });
+    _timer =  new Timer.periodic(timeout, handleTimerEvent);
   }
 
   void handleTimerEvent(Timer timer) {
-    timeRemaining = timeRemaining - timeout;
-    // TODO the toString returns 0:09:59.000000
-    print(timeRemaining.toString());
-
+    setState(() {
+      _timeRemaining = _timeRemaining - timeout;
+    });
   }
 
   void stopTimer() {
 //    stopwatch.stop()
-    timer.cancel();
+    print('canceling timer');
+    _timer.cancel();
   }
 
   void resumeTimer() {
@@ -53,7 +51,7 @@ class _ActivityClock extends State<ActivityClock> {
   @override
   Widget build(BuildContext context) {
     final Activity activity = ModalRoute.of(context).settings.arguments;
-    startTimer();
+//    startTimer();
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -62,7 +60,7 @@ class _ActivityClock extends State<ActivityClock> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Text('Time remaining ${timeRemaining.toString()}.'),
+            Text('Time remaining ${_timeRemaining.toString()}.'),
             // TODO add progress bar
             // TODO add countdown timer (is progress bar enough?)
             // TODO play alert sound when time is up (and show timer going negative?)
