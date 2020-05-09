@@ -21,31 +21,50 @@ class _ActivityClock extends State<ActivityClock> {
   Timer _timer;
   Duration _timeRemaining;
   Duration timeout = const Duration(seconds: 1);
+  Icon pauseIcon = const Icon(Icons.pause_circle_outline);
+  Icon playIcon = const Icon(Icons.play_circle_outline);
+  Icon _pausePlayIcon;
+  String _pausePlayTooltip;
 
   @override
   void initState() {
-    _timer =  new Timer.periodic(timeout, handleTimerEvent);
-    _timeRemaining = new Duration(minutes: activity.allottedDuration);
+    startTimer();
+//    _timeRemaining = new Duration(minutes: activity.allottedDuration);
+    _timeRemaining = new Duration(seconds: 10);
+    _pausePlayIcon = pauseIcon;
+    _pausePlayTooltip = 'Pause';
   }
 
   startTimer() {
     _timer =  new Timer.periodic(timeout, handleTimerEvent);
   }
 
-  void handleTimerEvent(Timer timer) {
-    setState(() {
-      _timeRemaining = _timeRemaining - timeout;
-    });
-  }
-
   void stopTimer() {
-//    stopwatch.stop()
-    print('canceling timer');
     _timer.cancel();
   }
 
-  void resumeTimer() {
-//    stopwatch.start();
+  void handleTimerEvent(Timer timer) {
+    setState(() {
+      _timeRemaining = _timeRemaining - timeout;
+      if (_timeRemaining.inMilliseconds == 0) {
+        print('We need to alert now - visual and audio and tactile (configurable)');
+        stopTimer();
+      }
+    });
+  }
+
+  void swapPausePlayButton() {
+    setState(() {
+      if (_pausePlayIcon == pauseIcon) {
+        stopTimer();
+        _pausePlayIcon = playIcon;
+        _pausePlayTooltip = 'Continue';
+      } else {
+        startTimer();
+        _pausePlayIcon = pauseIcon;
+        _pausePlayTooltip = 'Pause';
+      }
+    });
   }
 
   @override
@@ -72,25 +91,15 @@ class _ActivityClock extends State<ActivityClock> {
                 // TODO Continue enough?
                 IconButton(
                   padding: const EdgeInsets.only(),
-                  icon: Icon(Icons.pause_circle_outline),
-                  tooltip: 'Pause',
+                  icon: _pausePlayIcon,
+                  tooltip: _pausePlayTooltip,
                   onPressed: () {
                     // TODO pause timer
-                    stopTimer();
-                    Navigator.pushNamed(context, Analysis.routeName);
+                    swapPausePlayButton();
                   },
                 ),
                 // TODO show Continue when running, hide when stopped
-                IconButton(
-                  padding: const EdgeInsets.only(),
-                  icon: Icon(Icons.play_circle_outline),
-                  tooltip: 'Continue',
-                  onPressed: () {
-                    // TODO start timer
-                    Navigator.pushNamed(context, Analysis.routeName);
-                  },
-                ),
-                IconButton(
+                 IconButton(
                   padding: const EdgeInsets.only(),
                   icon: Icon(Icons.stop),
                   tooltip: 'Stop',
