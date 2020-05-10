@@ -25,6 +25,9 @@ class _ActivityClock extends State<ActivityClock> {
   Icon playIcon = const Icon(Icons.play_circle_outline);
   Icon _pausePlayIcon;
   String _pausePlayTooltip;
+// SEE: for below  https://trello.com/invite/b/Le8rQr0e/d3c07089afd1b451dc1681becfb2d47a/deliberate-action
+  toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
+  toMMSS(Duration d) => d.toString().substring(2, 7);
 
   @override
   void initState() {
@@ -79,7 +82,7 @@ class _ActivityClock extends State<ActivityClock> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Text('Time remaining ${_timeRemaining.toString()}.'),
+            Text('Time remaining ${toMMSS(_timeRemaining)}.'),
             // TODO add progress bar
             // TODO add countdown timer (is progress bar enough?)
             // TODO play alert sound when time is up (and show timer going negative?)
