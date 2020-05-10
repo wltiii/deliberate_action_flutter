@@ -32,8 +32,7 @@ class _ActivityClock extends State<ActivityClock> {
   @override
   void initState() {
     startTimer();
-//    _timeRemaining = new Duration(minutes: activity.allottedDuration);
-    _timeRemaining = new Duration(seconds: 10);
+    _timeRemaining = new Duration(minutes: activity.allottedDuration);
     _pausePlayIcon = pauseIcon;
     _pausePlayTooltip = 'Pause';
   }
@@ -82,16 +81,12 @@ class _ActivityClock extends State<ActivityClock> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Text('Time remaining ${toMMSS(_timeRemaining)}.'),
+            Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
             // TODO add progress bar
-            // TODO add countdown timer (is progress bar enough?)
             // TODO play alert sound when time is up (and show timer going negative?)
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // TODO show Pause when running, hide when stopped
-                // TODO provide visual indication that app is paused? Is progress bar enough? Is swapping with
-                // TODO Continue enough?
                 IconButton(
                   padding: const EdgeInsets.only(),
                   icon: _pausePlayIcon,
@@ -101,7 +96,6 @@ class _ActivityClock extends State<ActivityClock> {
                     swapPausePlayButton();
                   },
                 ),
-                // TODO show Continue when running, hide when stopped
                  IconButton(
                   padding: const EdgeInsets.only(),
                   icon: Icon(Icons.stop),
