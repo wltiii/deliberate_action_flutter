@@ -3,14 +3,14 @@ class Activity {
   final int actualDuration;
   final String activityTitle;
   final String activityHint;
-  final List postActivityHints;
+  final List reflectionQuestions;
 
   Activity({
     this.activityTitle,
     this.activityHint,
     this.allottedDuration,
     this.actualDuration,
-    this.postActivityHints
+    this.reflectionQuestions
   });
 }
 
@@ -19,7 +19,7 @@ final activity = new Activity(
   actualDuration: 0,
   activityTitle: 'What do you plan to accomplish during this session?',
   activityHint: 'Enter your intention.',
-    postActivityHints: [
+  reflectionQuestions: [
       'What happened during the allotted time?',
       'What explains the difference?',
       'What action can you take to improve outcomes?'

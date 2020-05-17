@@ -9,14 +9,16 @@ toc::[]
 Deliberate Practice, Deliberate Action
 ....Refine your mental models....
 
-I am a software developer. This project was initially motivated by the practice of _Retrospectives_. For
-the unitiated, retrospectives are done at the end of sprints or iterations. You are supposed to reflect
+I am a software developer. This project was initially motivated by the Agile practice of _Retrospectives_,
+known in other arenas as After Action Reviews, After Action Debriefings, Post Mortems and more. For
+the unitiated, retrospectives are done at the end of a software development cycle called a sprint or
+iteration. It, in turn, seems to have been inspired the military After Action Review process. You reflect
 upon what was done so that you and your team could improve their practice. I am leaving much out here, of
 course. I became somewhat frustrated for people, including myself, did not remember many details. I felt
 the level of learning I hoped for was just not there. Except for the biggest problems, there just was not
-enough detail. I decided it was wise to capture and reflect in much smaller chunks of time. Reflecting on
+enough detail. I decided it was wise to capture and reflect in much smaller chunks of time. _Reflecting on
 what you have just done seems to be a proven strategy, one that has application well beyond the realm of
-software development.
+software development_.
 
 In the early days of Agile, you would often hear an argument about whether software development is an
 art or a craft. In my opinion, it is neither. It seems to me to more closely resemble a learning activity,
@@ -36,26 +38,54 @@ While I don't know if there is great evidence supporting the Pomodoro like short
 feels right. Perhaps that is the software engineer in me for I believe things should be kept as simple as
 possible. Planning activities that are of short duration should help foster a laser like focus on what
 can be achieved, keeping them simple, understandable, unsurprising. And, importantly, easy to reflect
-upon.
+upon. The book _Peak: Secrets from the New Science of Expertise_ does reinforce the concept of short sessions
+followed by reviews and that book seems to be fairly research laden. So, a good thing.
 
-Each of these short sessions are followed by, what I call, After Action reports - a term borrowed from
-the military. They allow you to consider what happened, what you want to reinforce and what you can do
-to improve. This is the reflection activity.
+Each of these short sessions are followed by an After Action Report - using the military lingo. They allow you to consider what happened, what you want to reinforce and what you can do
+to improve. This is the reflection activity. The four parts of an AAR are:
+
+. Review what was supposed to happen (the plan).
+. Establish what actually happened.
+. Determine what went right and what went wrong.
+. Determine how the task could be performed differently in the future.
+
+The tool, however, is not destined to be prescriptive. The questions should be customizable to fit the needs of
+the individual and the situation. Guides and templates will be included to help individuals with their own needs.
 
 I have many further thoughts about how this should eventually work and look. But, for now, *I am trying to
 keep it simple so that I may _learn_, _reflect_ and modify my _practice_.*
 
+=== Concerns
+* None at present
+
+=== Unknowns
+* None at present
+
 === References and other resources
+* Peak: Secrets from the New Science of Expertise by Anders Ericsson and Robert Pool
++
+This book strongly reinforced the do and review process to improvement.
+* When: The Scientific Secrets of Perfect Timing by Daniel H. Pink
 * https://www.apa.org/monitor/2018/06/good-timing[Chronotypes]
 * https://www.nytimes.com/2011/01/21/science/21memory.html[Have a learning template? Study, practice, test?]
-* When: The Scientific Secrets of Perfect Timing by Daniel H. Pink
-* Peak: Secrets from the New Science of Expertise by Anders Ericsson and Robert Pool
 * https://www.estherderby.com/give-yourself-a-gift-reflection-time/[Give Yourself a Gift: Reflection Time]
 * https://www.youtube.com/watch?v=f2O6mQkFiiw[How To Practice Effectively... For Just About Anything]
 * https://www.youtube.com/watch?v=KlPmfgRJ_Y0[Ultimate Guide To Building New Habits - Atomic Habits book review (part 1)]
 * https://www.youtube.com/watch?v=vOQd9Uwpu5E[Ultimate Guide To Building New Habits - Atomic Habits book review (part 2)]
 * https://www.youtube.com/watch?v=Q8ApZXWgJq4&t=30s[James Clear - Atomic Habits: How Tiny Changes Create Remarable Results (part 1)]
 * https://www.youtube.com/watch?v=QUndnWBR0A0&t=49s[How to Take Notes | Science-Based Strategies to Earn Perfect Grades]
++
+This talks about using the tool Notability for taking notes during lectures, for projects, etc. This is a different a
+definitely different tool than what I see of the Roam Research tool (mentioned elsewhere). Like it, I feel this has
+features that could be integrated in a future version of this tool.
+* https://www.youtube.com/watch?v=vxOffM_tVHI[This Note-Taking App is a Game Changer - Roam Research]
++
+The Roam Research tool seems particularly apt for research. It, has some interesting features that may have applicability
+in this tool.
+* https://hbr.org/2005/07/learning-in-the-thick-of-it[Learning in the Thick of It]
+* https://www.rapidstartleadership.com/the-after-action-review-a-leaders-guide/[The After Action Review: A Leader’s Guide]
+* https://www.acq.osd.mil/dpap/ccap/cc/jcchb/Files/Topical/After_Action_Report/resources/tc25-20.pdf[A Leader's Guide to After-Action Reviews]
+* https://mgrush.com/blog/after-action-review/[How To Facilitate An After-Action Review]
 
 
 == Getting Started
