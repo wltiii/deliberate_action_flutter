@@ -5,7 +5,6 @@ import 'domain/activity.dart';
 
 // stopwatch page
 // shows progress bar with time remaining
-// shows play buttons: pause_circle_outline, play_circle_outline (?) - stop(not_interested?, lens? highlight_off? )
 // alarm when time ends
 // silence alarm and continue (encourages wrong behavior - think carefully)
 
@@ -26,15 +25,17 @@ class _ActivityClock extends State<ActivityClock> {
   Icon _pausePlayIcon;
   String _pausePlayTooltip;
 // SEE: for below  https://trello.com/invite/b/Le8rQr0e/d3c07089afd1b451dc1681becfb2d47a/deliberate-action
+  // TODO: these two functions look like they will be used in multiple locations. Consider moving to another class.
   toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
   toMMSS(Duration d) => d.toString().substring(2, 7);
 
   @override
   void initState() {
     startTimer();
-    _timeRemaining = new Duration(minutes: activity.allottedDuration);
+    _timeRemaining = activity.allottedDuration;
     _pausePlayIcon = pauseIcon;
     _pausePlayTooltip = 'Pause';
+    super.initState();
   }
 
   startTimer() {
@@ -71,7 +72,8 @@ class _ActivityClock extends State<ActivityClock> {
 
   @override
   Widget build(BuildContext context) {
-    final Activity activity = ModalRoute.of(context).settings.arguments;
+    // TODO will this be necessary when data is read from file by Home?
+//    final Activity activity = ModalRoute.of(context).settings.arguments;
 //    startTimer();
     // TODO: implement build
     return Scaffold(

@@ -15,21 +15,25 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   Activity _activity = activity;
   final _formKey = GlobalKey<FormState>();
-  // TODO set _actionMinutes to allottedDuration (or a default?)
-//  int _actionMinutes = _activity.allottedDuration;
-  int _actionMinutes = 10;
+  Duration oneMinute = const Duration(minutes: 1);
 
+  toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   void _incrementMinutes() {
     setState(() {
-      _actionMinutes += 1;
+      activity.allottedDuration += oneMinute;
     });
   }
 
   void _decrementMinutes() {
     setState(() {
-      if (_actionMinutes > 1) {
-        _actionMinutes -= 1;
+      if (activity.allottedDuration > oneMinute) {
+        activity.allottedDuration -= oneMinute;
       }
     });
   }
@@ -62,7 +66,7 @@ class _Home extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('To be completed in $_actionMinutes minutes.'),
+                  Text('Time allotted to complete action is ${toHHMMSS(activity.allottedDuration)}.'),
                   IconButton(
                     padding: const EdgeInsets.only(),
                     icon: Icon(Icons.add_circle_outline),
@@ -81,12 +85,13 @@ class _Home extends State<Home> {
             padding: const EdgeInsets.all(16.0),
             child: RaisedButton(
               onPressed: () {
-                _activity.allottedDuration = _actionMinutes;
+//                _activity.allottedDuration = _allottedDuration;
                 Navigator.pushNamed(
                   context,
                   ActivityClock.routeName,
                   arguments: _activity
                 );
+// TODO SnackBar belongs on clock page but may be used here for errors
 //                if (_formKey.currentState.validate()) {
 //                  Scaffold.of(context).showSnackBar(
 //                      SnackBar(

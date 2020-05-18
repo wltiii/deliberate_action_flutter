@@ -1,6 +1,6 @@
 class Activity {
-  int allottedDuration;
-  final int actualDuration;
+  Duration allottedDuration;
+  final Duration actualDuration;
   final String activityTitle;
   final String activityHint;
   final List reflectionQuestions;
@@ -15,8 +15,8 @@ class Activity {
 }
 
 final activity = new Activity(
-  allottedDuration: 10,
-  actualDuration: 0,
+  allottedDuration: Duration(minutes: 10),
+  actualDuration: Duration(minutes: 0),
   activityTitle: 'What do you plan to accomplish during this session?',
   activityHint: 'Enter your intention.',
   reflectionQuestions: [

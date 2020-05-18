@@ -120,7 +120,7 @@ in this tool.
 == Ideas, Issues and Opportunities ==
 None that are not listed above.
 
-== Version 0.0.1 (202--05-03)
+== Version 0.0.1 (2020-05-03)
 .Release highlights
 Initial release
 
