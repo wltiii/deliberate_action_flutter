@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'domain/activity.dart';
-import 'activity-clock.dart';
+import 'domain/expectation-template.dart';
+import 'action-timer.dart';
 
-class Home extends StatefulWidget {
-  static const routeName = '/home';
-  Home({Key key, this.title}) : super(key: key);
+class Expectation extends StatefulWidget {
+  static const routeName = '/expectation';
+  Expectation({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _Home createState() => _Home();
+  _Expectation createState() => _Expectation();
 }
 
-class _Home extends State<Home> {
-  Activity _activity = activity;
+class _Expectation extends State<Expectation> {
+  ExpectationTemplate _activity = activity;
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
 
@@ -88,7 +88,7 @@ class _Home extends State<Home> {
 //                _activity.allottedDuration = _allottedDuration;
                 Navigator.pushNamed(
                   context,
-                  ActivityClock.routeName,
+                  ActionTimer.routeName,
                   arguments: _activity
                 );
 // TODO SnackBar belongs on clock page but may be used here for errors

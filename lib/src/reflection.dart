@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'expectation.dart';
 
 // PostActivity page
 // show postActivityHints
 // save results (activity, post activity, duration)
 
-class Analysis extends StatelessWidget{
-  static const routeName = '/analysis';
+class Reflection extends StatelessWidget{
+  static const routeName = '/reflection';
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class Analysis extends StatelessWidget{
           icon: Icon(Icons.lens),
           tooltip: 'Done',
           onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName(Home.routeName));
+            Navigator.popUntil(context, ModalRoute.withName(Expectation.routeName));
           },
         ),
       ),

@@ -75,7 +75,7 @@ This book strongly reinforced the do and review process to improvement.
 * https://www.youtube.com/watch?v=Q8ApZXWgJq4&t=30s[James Clear - Atomic Habits: How Tiny Changes Create Remarable Results (part 1)]
 * https://www.youtube.com/watch?v=QUndnWBR0A0&t=49s[How to Take Notes | Science-Based Strategies to Earn Perfect Grades]
 +
-This talks about using the tool Notability for taking notes during lectures, for projects, etc. This is a different a
+This talks about using the tool Notability (and/or Notion?) for taking notes during lectures, for projects, etc. This is a different a
 definitely different tool than what I see of the Roam Research tool (mentioned elsewhere). Like it, I feel this has
 features that could be integrated in a future version of this tool.
 * https://www.youtube.com/watch?v=vxOffM_tVHI[This Note-Taking App is a Game Changer - Roam Research]

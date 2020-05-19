@@ -1,8 +1,8 @@
-import 'package:deliberate_action_flutter/src/analysis.dart';
+import 'package:deliberate_action_flutter/src/reflection.dart';
 import 'package:flutter/material.dart';
-import 'src/home.dart';
-import 'src/activity-clock.dart';
-import 'src/analysis.dart';
+import 'src/expectation.dart';
+import 'src/action-timer.dart';
+import 'src/reflection.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 //      home: ActionInitForm(title: appTitle),
-      initialRoute: Home.routeName,
+      initialRoute: Expectation.routeName,
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
-        Home.routeName: (context) => Home(title: appTitle),
+        Expectation.routeName: (context) => Expectation(title: appTitle),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        ActivityClock.routeName: (context) => ActivityClock(),
-        Analysis.routeName: (context) => Analysis(),
+        ActionTimer.routeName: (context) => ActionTimer(),
+        Reflection.routeName: (context) => Reflection(),
       },
     );
   }

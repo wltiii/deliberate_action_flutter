@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'analysis.dart';
-import 'domain/activity.dart';
+import 'reflection.dart';
+import 'domain/expectation-template.dart';
 
 // stopwatch page
 // shows progress bar with time remaining
 // alarm when time ends
 // silence alarm and continue (encourages wrong behavior - think carefully)
 
-class ActivityClock extends StatefulWidget {
-  static const routeName = '/activity-clock';
-  ActivityClock({Key key, this.title}): super(key:key);
+class ActionTimer extends StatefulWidget {
+  static const routeName = '/action-timer';
+  ActionTimer({Key key, this.title}): super(key:key);
 
   final String title;
-  _ActivityClock createState() => _ActivityClock();
+  _ActionTimer createState() => _ActionTimer();
 }
 
-class _ActivityClock extends State<ActivityClock> {
+class _ActionTimer extends State<ActionTimer> {
   Timer _timer;
   Duration _timeRemaining;
   Duration timeout = const Duration(seconds: 1);
@@ -104,7 +104,7 @@ class _ActivityClock extends State<ActivityClock> {
                   tooltip: 'Stop',
                   onPressed: () {
                     stopTimer();
-                    Navigator.pushNamed(context, Analysis.routeName);
+                    Navigator.pushNamed(context, Reflection.routeName);
                   },
                 ),
               ]

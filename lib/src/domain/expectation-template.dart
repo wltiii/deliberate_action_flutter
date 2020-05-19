@@ -1,22 +1,19 @@
-class Activity {
+class ExpectationTemplate {
   Duration allottedDuration;
-  final Duration actualDuration;
   final String activityTitle;
   final String activityHint;
   final List reflectionQuestions;
 
-  Activity({
+  ExpectationTemplate({
     this.activityTitle,
     this.activityHint,
     this.allottedDuration,
-    this.actualDuration,
     this.reflectionQuestions
   });
 }
 
-final activity = new Activity(
+final activity = new ExpectationTemplate(
   allottedDuration: Duration(minutes: 10),
-  actualDuration: Duration(minutes: 0),
   activityTitle: 'What do you plan to accomplish during this session?',
   activityHint: 'Enter your intention.',
   reflectionQuestions: [
