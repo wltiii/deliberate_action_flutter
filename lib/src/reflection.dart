@@ -5,7 +5,7 @@ import 'expectation.dart';
 // show postActivityHints
 // save results (activity, post activity, duration)
 
-class Reflection extends StatelessWidget{
+class Reflection extends StatelessWidget {
   static const routeName = '/reflection';
 
   @override
@@ -16,12 +16,13 @@ class Reflection extends StatelessWidget{
         title: Text('Deliberate Practice'),
       ),
       body: Center(
-        child:  IconButton(
+        child: IconButton(
           padding: const EdgeInsets.only(),
           icon: Icon(Icons.lens),
           tooltip: 'Done',
           onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName(Expectation.routeName));
+            Navigator.popUntil(
+                context, ModalRoute.withName(Expectation.routeName));
           },
         ),
       ),

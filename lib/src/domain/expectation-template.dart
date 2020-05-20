@@ -23,8 +23,6 @@ class ExpectationTemplate {
   }
 }
 
-
-
 final activity = ExpectationTemplate.fromJson('''{
   "allottedDuration": 10,
   "activityTitle": "What do you plan to accomplish during this session?",

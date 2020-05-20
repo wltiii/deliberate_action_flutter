@@ -52,10 +52,9 @@ class _Expectation extends State<Expectation> {
                 keyboardType: TextInputType.multiline,
                 maxLines: 3,
                 decoration: InputDecoration(
-                  icon: Icon(Icons.subject),
-                  labelText: _activity.activityTitle,
-                  hintText: _activity.activityHint
-                ),
+                    icon: Icon(Icons.subject),
+                    labelText: _activity.activityTitle,
+                    hintText: _activity.activityHint),
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Enter some text';
@@ -66,7 +65,8 @@ class _Expectation extends State<Expectation> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Time allotted to complete action is ${toHHMMSS(activity.allottedDuration)}.'),
+                  Text(
+                      'Time allotted to complete action is ${toHHMMSS(activity.allottedDuration)}.'),
                   IconButton(
                     padding: const EdgeInsets.only(),
                     icon: Icon(Icons.add_circle_outline),
@@ -81,16 +81,13 @@ class _Expectation extends State<Expectation> {
                   ),
                 ],
               ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: RaisedButton(
-              onPressed: () {
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: RaisedButton(
+                  onPressed: () {
 //                _activity.allottedDuration = _allottedDuration;
-                Navigator.pushNamed(
-                  context,
-                  ActionTimer.routeName,
-                  arguments: _activity
-                );
+                    Navigator.pushNamed(context, ActionTimer.routeName,
+                        arguments: _activity);
 // TODO SnackBar belongs on clock page but may be used here for errors
 //                if (_formKey.currentState.validate()) {
 //                  Scaffold.of(context).showSnackBar(
@@ -99,12 +96,11 @@ class _Expectation extends State<Expectation> {
 //                      )
 //                  );
 //                }
-              },
-              child: Text('Start Activity'),
-            ),
-          ),
-
-          ],
+                  },
+                  child: Text('Start Activity'),
+                ),
+              ),
+            ],
           ),
         ),
       ),

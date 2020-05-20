@@ -10,7 +10,7 @@ import 'domain/expectation-template.dart';
 
 class ActionTimer extends StatefulWidget {
   static const routeName = '/action-timer';
-  ActionTimer({Key key, this.title}): super(key:key);
+  ActionTimer({Key key, this.title}) : super(key: key);
 
   final String title;
   _ActionTimer createState() => _ActionTimer();
@@ -39,7 +39,7 @@ class _ActionTimer extends State<ActionTimer> {
   }
 
   startTimer() {
-    _timer =  new Timer.periodic(timeout, handleTimerEvent);
+    _timer = new Timer.periodic(timeout, handleTimerEvent);
   }
 
   void stopTimer() {
@@ -50,7 +50,8 @@ class _ActionTimer extends State<ActionTimer> {
     setState(() {
       _timeRemaining = _timeRemaining - timeout;
       if (_timeRemaining.inMilliseconds == 0) {
-        print('We need to alert now - visual and audio and tactile (configurable)');
+        print(
+            'We need to alert now - visual and audio and tactile (configurable)');
         stopTimer();
       }
     });
@@ -81,37 +82,31 @@ class _ActionTimer extends State<ActionTimer> {
         title: Text('Deliberate Practice'),
       ),
       body: Center(
-        child: Column(
-          children: <Widget>[
-            Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
-            // TODO add progress bar
-            // TODO play alert sound when time is up (and show timer going negative?)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                  padding: const EdgeInsets.only(),
-                  icon: _pausePlayIcon,
-                  tooltip: _pausePlayTooltip,
-                  onPressed: () {
-                    // TODO pause timer
-                    swapPausePlayButton();
-                  },
-                ),
-                 IconButton(
-                  padding: const EdgeInsets.only(),
-                  icon: Icon(Icons.stop),
-                  tooltip: 'Stop',
-                  onPressed: () {
-                    stopTimer();
-                    Navigator.pushNamed(context, Reflection.routeName);
-                  },
-                ),
-              ]
-            ),
-          ]
-        )
-      ),
+          child: Column(children: <Widget>[
+        Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
+        // TODO add progress bar
+        // TODO play alert sound when time is up (and show timer going negative?)
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          IconButton(
+            padding: const EdgeInsets.only(),
+            icon: _pausePlayIcon,
+            tooltip: _pausePlayTooltip,
+            onPressed: () {
+              // TODO pause timer
+              swapPausePlayButton();
+            },
+          ),
+          IconButton(
+            padding: const EdgeInsets.only(),
+            icon: Icon(Icons.stop),
+            tooltip: 'Stop',
+            onPressed: () {
+              stopTimer();
+              Navigator.pushNamed(context, Reflection.routeName);
+            },
+          ),
+        ]),
+      ])),
     );
   }
 }
