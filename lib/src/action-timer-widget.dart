@@ -8,15 +8,19 @@ import 'domain/expectation-template.dart';
 // alarm when time ends
 // silence alarm and continue (encourages wrong behavior - think carefully)
 
-class ActionTimer extends StatefulWidget {
+class ActionTimerWidget extends StatefulWidget {
   static const routeName = '/action-timer';
-  ActionTimer({Key key, this.title}) : super(key: key);
+  const ActionTimerWidget({
+    Key key,
+    this.title,
+  }) : super(key: key);
+
 
   final String title;
   _ActionTimer createState() => _ActionTimer();
 }
 
-class _ActionTimer extends State<ActionTimer> {
+class _ActionTimer extends State<ActionTimerWidget> {
   Timer _timer;
   Duration _timeRemaining;
   Duration timeout = const Duration(seconds: 1);

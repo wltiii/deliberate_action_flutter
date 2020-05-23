@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'domain/expectation-template.dart';
-import 'action-timer.dart';
+import 'action-timer-widget.dart';
 
 class Expectation extends StatefulWidget {
   static const routeName = '/expectation';
@@ -86,7 +86,7 @@ class _Expectation extends State<Expectation> {
                 child: RaisedButton(
                   onPressed: () {
 //                _activity.allottedDuration = _allottedDuration;
-                    Navigator.pushNamed(context, ActionTimer.routeName,
+                    Navigator.pushNamed(context, ActionTimerWidget.routeName,
                         arguments: _activity);
 // TODO SnackBar belongs on clock page but may be used here for errors
 //                if (_formKey.currentState.validate()) {
