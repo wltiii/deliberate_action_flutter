@@ -66,6 +66,10 @@ keep it simple so that I may _learn_, _reflect_ and modify my _practice_.*
 +
 This book strongly reinforced the do and review process to improvement.
 * When: The Scientific Secrets of Perfect Timing by Daniel H. Pink
+* https://www.learningscientists.org/[The Learning Scientists]
++
+They are cognitive psychological scientists interested in research on education. Our main research focus is on the science of learning.
+* https://getpocket.com/explore/item/fail-productively-how-to-turn-yourself-into-a-super-learner?utm_source=pocket-newtab[Fail Productively… How to Turn Yourself Into a Super-Learner]
 * https://www.apa.org/monitor/2018/06/good-timing[Chronotypes]
 * https://www.nytimes.com/2011/01/21/science/21memory.html[Have a learning template? Study, practice, test?]
 * https://www.estherderby.com/give-yourself-a-gift-reflection-time/[Give Yourself a Gift: Reflection Time]
