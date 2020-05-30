@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:deliberate_action_flutter/src/action-timer-widget.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('tests action timer', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(ActionTimerWidget(title: 'Test title'));
 

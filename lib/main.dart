@@ -18,12 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-//      home: ActionInitForm(title: appTitle),
       initialRoute: Expectation.routeName,
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
         Expectation.routeName: (context) => Expectation(title: appTitle),
-        // When navigating to the "/second" route, build the SecondScreen widget.
         ActionTimerWidget.routeName: (context) => ActionTimerWidget(),
         Reflection.routeName: (context) => Reflection(),
       },
