@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'domain/expectation-template.dart';
+import 'domain/screen-arguments.dart';
 import 'action-timer-widget.dart';
 
 class Expectation extends StatefulWidget {
@@ -16,6 +17,8 @@ class _Expectation extends State<Expectation> {
   ExpectationTemplate _activity = activity;
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
+  String _value;
+  ScreenArguments sa;
 
   toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
 
@@ -51,6 +54,10 @@ class _Expectation extends State<Expectation> {
               TextFormField(
                 keyboardType: TextInputType.multiline,
                 maxLines: 3,
+                onChanged: (value){
+                  _value = value;
+                  print(_value);
+                },
                 decoration: InputDecoration(
                     icon: Icon(Icons.subject),
                     labelText: _activity.activityTitle,
@@ -87,7 +94,7 @@ class _Expectation extends State<Expectation> {
                   onPressed: () {
 //                _activity.allottedDuration = _allottedDuration;
                     Navigator.pushNamed(context, ActionTimerWidget.routeName,
-                        arguments: _activity);
+                        arguments: new ScreenArguments(_activity, _value));
 // TODO SnackBar belongs on clock page but may be used here for errors
 //                if (_formKey.currentState.validate()) {
 //                  Scaffold.of(context).showSnackBar(

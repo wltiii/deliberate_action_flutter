@@ -1,3 +1,4 @@
+import 'package:deliberate_action_flutter/src/domain/screen-arguments.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'reflection.dart';
@@ -36,7 +37,8 @@ class _ActionTimer extends State<ActionTimerWidget> {
   @override
   void initState() {
     startTimer();
-    _timeRemaining = activity.allottedDuration;
+    //_timeRemaining = activity.allottedDuration;
+    //_timeRemaining = args._activity.allottedDuration;
     _pausePlayIcon = pauseIcon;
     _pausePlayTooltip = 'Pause';
     super.initState();
@@ -78,7 +80,8 @@ class _ActionTimer extends State<ActionTimerWidget> {
   @override
   Widget build(BuildContext context) {
     // TODO will this be necessary when data is read from file by Home?
-//    final Activity activity = ModalRoute.of(context).settings.arguments;
+    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    _timeRemaining = args.expectationTemplate.allottedDuration;
 //    startTimer();
     // TODO: implement build
     return Scaffold(
@@ -88,6 +91,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
       body: Center(
           child: Column(children: <Widget>[
         Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
+            Text(args.expectation),
         // TODO add progress bar
         // TODO play alert sound when time is up (and show timer going negative?)
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
