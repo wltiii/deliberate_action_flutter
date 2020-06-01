@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:uuid/uuid_util.dart';
 
 class ExpectationTemplate {
+  String uuid;
   Duration allottedDuration;
   String activityTitle;
   String activityHint;
@@ -15,8 +17,8 @@ class ExpectationTemplate {
 
   ExpectationTemplate.fromJson(String json) {
     Map decoded = jsonDecode(json);
-    Duration d = Duration(minutes: decoded['allottedDuration']);
-    this.allottedDuration = d;
+    this.uuid = decoded['uuid'] ?? null;
+    this.allottedDuration = Duration(minutes: decoded['allottedDuration']);
     this.activityTitle = decoded['activityTitle'];
     this.activityHint = decoded['activityHint'];
     this.reflectionQuestions = decoded['reflectionQuestions'];
