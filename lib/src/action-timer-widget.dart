@@ -22,6 +22,7 @@ class ActionTimerWidget extends StatefulWidget {
 }
 
 class _ActionTimer extends State<ActionTimerWidget> {
+  bool _initialized = false;
   Timer _timer;
   Duration _timeRemaining;
   Duration timeout = const Duration(seconds: 1);
@@ -29,7 +30,6 @@ class _ActionTimer extends State<ActionTimerWidget> {
   Icon playIcon = const Icon(Icons.play_circle_outline);
   Icon _pausePlayIcon;
   String _pausePlayTooltip;
-// SEE: for below  https://trello.com/invite/b/Le8rQr0e/d3c07089afd1b451dc1681becfb2d47a/deliberate-action
   // TODO: these two functions look like they will be used in multiple locations. Consider moving to another class.
   toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
   toMMSS(Duration d) => d.toString().substring(2, 7);
@@ -37,8 +37,6 @@ class _ActionTimer extends State<ActionTimerWidget> {
   @override
   void initState() {
     startTimer();
-    //_timeRemaining = activity.allottedDuration;
-    //_timeRemaining = args._activity.allottedDuration;
     _pausePlayIcon = pauseIcon;
     _pausePlayTooltip = 'Pause';
     super.initState();
@@ -79,19 +77,18 @@ class _ActionTimer extends State<ActionTimerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO will this be necessary when data is read from file by Home?
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
-    _timeRemaining = args.expectationTemplate.allottedDuration;
-//    startTimer();
-    // TODO: implement build
+    // TODO this seems wrong. How can it be initialized from args without this method?
+    initFromArgs(args);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Deliberate Practice'),
       ),
       body: Center(
           child: Column(children: <Widget>[
-        Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
-            Text(args.expectation),
+            Text(args.expectationTemplate.activityTitle),
+            Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
         // TODO add progress bar
         // TODO play alert sound when time is up (and show timer going negative?)
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -116,5 +113,12 @@ class _ActionTimer extends State<ActionTimerWidget> {
         ]),
       ])),
     );
+  }
+
+  initFromArgs(ScreenArguments args) {
+    if (!_initialized) {
+      _timeRemaining = args.expectationTemplate.allottedDuration;
+      _initialized = true;
+    }
   }
 }

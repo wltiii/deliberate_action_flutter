@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'domain/expectation-template.dart';
+import 'package:deliberate_action_flutter/src/service/expectation-template-service.dart';
 import 'domain/screen-arguments.dart';
 import 'action-timer-widget.dart';
 
@@ -14,7 +15,7 @@ class Expectation extends StatefulWidget {
 }
 
 class _Expectation extends State<Expectation> {
-  ExpectationTemplate _activity = activity;
+  ExpectationTemplate _expectation = new ExpectationTemplateService().get('1');
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
   String _value;
@@ -29,14 +30,14 @@ class _Expectation extends State<Expectation> {
 
   void _incrementMinutes() {
     setState(() {
-      activity.allottedDuration += oneMinute;
+      _expectation.allottedDuration += oneMinute;
     });
   }
 
   void _decrementMinutes() {
     setState(() {
-      if (activity.allottedDuration > oneMinute) {
-        activity.allottedDuration -= oneMinute;
+      if (_expectation.allottedDuration > oneMinute) {
+        _expectation.allottedDuration -= oneMinute;
       }
     });
   }
@@ -60,8 +61,8 @@ class _Expectation extends State<Expectation> {
                 },
                 decoration: InputDecoration(
                     icon: Icon(Icons.subject),
-                    labelText: _activity.activityTitle,
-                    hintText: _activity.activityHint),
+                    labelText: _expectation.activityTitle,
+                    hintText: _expectation.activityHint),
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Enter some text';
@@ -73,7 +74,7 @@ class _Expectation extends State<Expectation> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                      'Time allotted to complete action is ${toHHMMSS(activity.allottedDuration)}.'),
+                      'Time allotted to complete action is ${toHHMMSS(_expectation.allottedDuration)}.'),
                   IconButton(
                     padding: const EdgeInsets.only(),
                     icon: Icon(Icons.add_circle_outline),
@@ -94,7 +95,7 @@ class _Expectation extends State<Expectation> {
                   onPressed: () {
 //                _activity.allottedDuration = _allottedDuration;
                     Navigator.pushNamed(context, ActionTimerWidget.routeName,
-                        arguments: new ScreenArguments(_activity, _value));
+                        arguments: new ScreenArguments(_expectation, _value));
 // TODO SnackBar belongs on clock page but may be used here for errors
 //                if (_formKey.currentState.validate()) {
 //                  Scaffold.of(context).showSnackBar(
