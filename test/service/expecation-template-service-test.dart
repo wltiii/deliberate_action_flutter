@@ -10,4 +10,11 @@ void main() {
     expect(template.uuid, equals("1"));
     expect(template.activityTitle, equals("What do you plan to accomplish during this session?"));
   });
+
+  test('lists templates', () {
+    final templates = new ExpectationTemplateService().list('me');
+
+    expect(templates.length, equals(2));
+  });
+
 }
