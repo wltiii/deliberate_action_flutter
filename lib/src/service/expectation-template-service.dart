@@ -4,9 +4,10 @@ class ExpectationTemplateService {
 
   final template1 = ExpectationTemplate.fromJson('''{
   "uuid": "1",
+  "name": "test 1",
   "allottedDuration": 10,
-  "activityTitle": "What do you plan to accomplish during this session?",
-  "activityHint": "Enter your intention.",
+  "expectation": "What do you plan to accomplish during this session?",
+  "hint": "Enter your intention.",
   "reflectionQuestions": [
     "What happened during the allotted time?",
     "What explains the difference?",
@@ -16,9 +17,10 @@ class ExpectationTemplateService {
 
   final template2 = ExpectationTemplate.fromJson('''{
   "uuid": "2",
+  "name": "test 2",
   "allottedDuration": 45,
-  "activityTitle": "How long will you run?",
-  "activityHint": "Enter your intention.",
+  "expectation": "How long will you run?",
+  "hint": "Enter your intention.",
   "reflectionQuestions": [
     "Did you run the expected distance within your allotted time?",
     "What explains the difference?",

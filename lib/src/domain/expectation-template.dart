@@ -3,14 +3,16 @@ import 'package:uuid/uuid_util.dart';
 
 class ExpectationTemplate {
   String uuid;
+  String name;
   Duration allottedDuration;
-  String activityTitle;
-  String activityHint;
+  String expectation;
+  String hint;
   List reflectionQuestions;
 
   ExpectationTemplate(
-    this.activityTitle,
-    this.activityHint,
+    this.expectation,
+    this.name,
+    this.hint,
     this.allottedDuration,
     this.reflectionQuestions
   );
@@ -19,8 +21,9 @@ class ExpectationTemplate {
     Map decoded = jsonDecode(json);
     this.uuid = decoded['uuid'] ?? null;
     this.allottedDuration = Duration(minutes: decoded['allottedDuration']);
-    this.activityTitle = decoded['activityTitle'];
-    this.activityHint = decoded['activityHint'];
+    this.name = decoded['name'];
+    this.expectation = decoded['expectation'];
+    this.hint = decoded['hint'];
     this.reflectionQuestions = decoded['reflectionQuestions'];
   }
 }

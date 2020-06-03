@@ -4,9 +4,9 @@ import 'package:deliberate_action_flutter/src/service/expectation-template-servi
 import 'domain/screen-arguments.dart';
 import 'action-timer-widget.dart';
 
-class Expectation extends StatefulWidget {
+class ExpectationWidget extends StatefulWidget {
   static const routeName = '/expectation';
-  Expectation({Key key, this.title}) : super(key: key);
+  ExpectationWidget({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -14,7 +14,7 @@ class Expectation extends StatefulWidget {
   _Expectation createState() => _Expectation();
 }
 
-class _Expectation extends State<Expectation> {
+class _Expectation extends State<ExpectationWidget> {
   ExpectationTemplate _expectation = new ExpectationTemplateService().get('1');
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
@@ -61,8 +61,8 @@ class _Expectation extends State<Expectation> {
                 },
                 decoration: InputDecoration(
                     icon: Icon(Icons.subject),
-                    labelText: _expectation.activityTitle,
-                    hintText: _expectation.activityHint),
+                    labelText: _expectation.expectation,
+                    hintText: _expectation.hint),
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Enter some text';
@@ -94,7 +94,9 @@ class _Expectation extends State<Expectation> {
                 child: RaisedButton(
                   onPressed: () {
 //                _activity.allottedDuration = _allottedDuration;
-                    Navigator.pushNamed(context, ActionTimerWidget.routeName,
+                    Navigator.pushNamed(
+                        context,
+                        ActionTimerWidget.routeName,
                         arguments: new ScreenArguments(_expectation, _value));
 // TODO SnackBar belongs on clock page but may be used here for errors
 //                if (_formKey.currentState.validate()) {

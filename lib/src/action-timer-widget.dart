@@ -1,7 +1,7 @@
 import 'package:deliberate_action_flutter/src/domain/screen-arguments.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'reflection.dart';
+import 'reflection-widget.dart';
 import 'domain/expectation-template.dart';
 
 // stopwatch page
@@ -87,7 +87,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
       ),
       body: Center(
           child: Column(children: <Widget>[
-            Text(args.expectationTemplate.activityTitle),
+            Text(args.expectationTemplate.expectation),
             Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
         // TODO add progress bar
         // TODO play alert sound when time is up (and show timer going negative?)
@@ -107,7 +107,11 @@ class _ActionTimer extends State<ActionTimerWidget> {
             tooltip: 'Stop',
             onPressed: () {
               stopTimer();
-              Navigator.pushNamed(context, Reflection.routeName);
+              Navigator.pushNamed(
+                  context,
+                  ReflectionWidget.routeName,
+                  arguments: args,
+              );
             },
           ),
         ]),

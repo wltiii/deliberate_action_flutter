@@ -8,7 +8,8 @@ void main() {
     final template = new ExpectationTemplateService().get('1');
 
     expect(template.uuid, equals("1"));
-    expect(template.activityTitle, equals("What do you plan to accomplish during this session?"));
+    expect(template.expectation, equals("What do you plan to accomplish during this session?"));
+    expect(template.name, equals("test 1"));
   });
 
   test('lists templates', () {
