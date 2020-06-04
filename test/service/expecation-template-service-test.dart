@@ -1,5 +1,4 @@
 import 'package:test/test.dart';
-import 'package:deliberate_action_flutter/src/domain/expectation-template.dart';
 import 'package:deliberate_action_flutter/src/service/expectation-template-service.dart';
 
 

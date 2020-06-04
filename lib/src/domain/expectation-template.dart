@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:uuid/uuid_util.dart';
 
 class ExpectationTemplate {
   String uuid;

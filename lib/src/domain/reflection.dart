@@ -1,25 +1,30 @@
+import 'dart:convert';
+import 'package:deliberate_action_flutter/src/domain/expectation-template.dart';
+
 class Reflection {
-  final Duration actualDuration;
-  final String activityTitle;
-  final String activityHint;
-  // TODO have the expectations as well? The entire object? Or entries with each expectation and associated response?
-  final List reflectionResponses;
+  String uuid;
+  Duration actualDuration;
+  List reflectionResponses;
+  ExpectationTemplate expectation;
 
   Reflection({
-    this.activityTitle,
-    this.activityHint,
+    this.uuid,
     this.actualDuration,
-    this.reflectionResponses
+    this.reflectionResponses,
+    this.expectation,
   });
-}
 
-final reflection = new Reflection(
-  actualDuration: Duration(minutes: 0),
-  activityTitle: 'What do you plan to accomplish during this session?',
-  activityHint: 'Enter your intention.',
-  reflectionResponses: [
-      'What happened during the allotted time?',
-      'What explains the difference?',
-      'What action can you take to improve outcomes?'
-    ]
-);
+  Reflection.fromJson(String json) {
+    Map decoded = jsonDecode(json);
+    this.uuid = decoded['uuid'] ?? null;
+    this.actualDuration = Duration(minutes: decoded['actualDuration']);
+    this.reflectionResponses = decoded['reflectionResponses'];
+
+    this.expectation.uuid = decoded['uuid'] ?? null;
+    this.expectation.allottedDuration = Duration(minutes: decoded['allottedDuration']);
+    this.expectation.name = decoded['name'];
+    this.expectation.expectation = decoded['expectation'];
+    this.expectation.hint = decoded['hint'];
+    this.expectation.reflectionQuestions = decoded['reflectionQuestions'];
+  }
+}
