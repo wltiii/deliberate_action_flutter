@@ -16,6 +16,15 @@ class ExpectationTemplate {
     this.reflectionQuestions
   );
 
+  ExpectationTemplate.persisted(
+    this.uuid,
+    this.expectation,
+    this.name,
+    this.hint,
+    this.allottedDuration,
+    this.reflectionQuestions
+  );
+
   ExpectationTemplate.fromJson(String json) {
     Map decoded = jsonDecode(json);
     this.uuid = decoded['uuid'] ?? null;
