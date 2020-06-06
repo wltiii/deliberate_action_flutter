@@ -2,7 +2,7 @@ import 'package:deliberate_action_flutter/src/domain/screen_arguments.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'domain/reflection.dart';
-import 'reflection-widget.dart';
+import 'reflection_widget.dart';
 import 'domain/expectation_template.dart';
 
 // stopwatch page

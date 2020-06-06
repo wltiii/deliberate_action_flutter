@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:deliberate_action_flutter/src/action-timer-widget.dart';
+import 'package:deliberate_action_flutter/src/action_timer_widget.dart';
 
 void main() {
   testWidgets('tests action timer', (WidgetTester tester) async {

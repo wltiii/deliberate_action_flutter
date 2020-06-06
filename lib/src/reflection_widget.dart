@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'domain/reflection.dart';
-import 'expectation-widget.dart';
+import 'expectation_widget.dart';
 
 // PostActivity page
 // show postActivityHints

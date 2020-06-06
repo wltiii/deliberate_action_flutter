@@ -1,8 +1,8 @@
-import 'package:deliberate_action_flutter/src/reflection-widget.dart';
+import 'package:deliberate_action_flutter/src/reflection_widget.dart';
 import 'package:flutter/material.dart';
-import 'src/expectation-widget.dart';
-import 'src/action-timer-widget.dart';
-import 'src/reflection-widget.dart';
+import 'src/expectation_widget.dart';
+import 'src/action_timer_widget.dart';
+import 'src/reflection_widget.dart';
 
 void main() => runApp(MyApp());
 
