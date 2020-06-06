@@ -1,4 +1,6 @@
-import 'package:deliberate_action_flutter/src/domain/reflection.dart';
+import 'package:uuid/uuid.dart';
+
+import '../domain/reflection.dart';
 
 class ReflectionService {
 
@@ -21,7 +23,8 @@ class ReflectionService {
       "What explains the difference?",
       "What action can you take to improve outcomes?"
     ]
-  }
+  },
+  "updated": "2007-12-01T12:00:00.000Z"
 }''');
 
   final reflection2 = Reflection.fromJson('''{
@@ -43,18 +46,27 @@ class ReflectionService {
       "What explains the difference?",
       "What action can you take to improve outcomes?"
     ]
-  }
+  },
+  "updated": "2014-05-31T12:00:00.000Z"
 }''');
 
   Reflection get(String uuid) {
-    return stubResponse(uuid);
+    return stubGetResponse(uuid);
   }
 
   List<Reflection> list(String user) {
     return [reflection1, reflection2];
   }
 
-  Reflection stubResponse(String uuid) {
+  Reflection save(Reflection reflection) {
+    if (reflection.uuid == null) {
+      return _stubPostResponse(reflection);
+    }
+//    return stubPutResponse(reflection);
+  return null;
+  }
+
+  Reflection stubGetResponse(String uuid) {
     if (uuid == "10") {
       return reflection1;
     }
@@ -62,5 +74,9 @@ class ReflectionService {
       return reflection2;
     }
     return null;
+  }
+
+  Reflection _stubPostResponse(Reflection reflection) {
+    reflection.uuid = Uuid().v4();
   }
 }

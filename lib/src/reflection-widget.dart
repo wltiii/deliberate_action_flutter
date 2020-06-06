@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'domain/screen-arguments.dart';
+import 'domain/screen_arguments.dart';
 import 'expectation-widget.dart';
 
 // PostActivity page

@@ -16,6 +16,8 @@ class ExpectationTemplate {
     this.reflectionQuestions
   );
 
+  // TODO it seems effective style or such suggested doing this differently
+  // TODO if going to have a named constructor, perhaps it should be the other?
   ExpectationTemplate.persisted(
     this.uuid,
     this.expectation,

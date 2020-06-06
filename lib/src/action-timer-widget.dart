@@ -1,8 +1,8 @@
-import 'package:deliberate_action_flutter/src/domain/screen-arguments.dart';
+import 'package:deliberate_action_flutter/src/domain/screen_arguments.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'reflection-widget.dart';
-import 'domain/expectation-template.dart';
+import 'domain/expectation_template.dart';
 
 // stopwatch page
 // shows progress bar with time remaining

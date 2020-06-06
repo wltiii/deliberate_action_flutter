@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'domain/expectation-template.dart';
+import 'domain/expectation_template.dart';
 import 'package:deliberate_action_flutter/src/service/expectation-template-service.dart';
-import 'domain/screen-arguments.dart';
+import 'domain/screen_arguments.dart';
 import 'action-timer-widget.dart';
 
 class ExpectationWidget extends StatefulWidget {

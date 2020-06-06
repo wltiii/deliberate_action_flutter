@@ -1,4 +1,4 @@
-import 'package:deliberate_action_flutter/src/domain/expectation-template.dart';
+import 'package:deliberate_action_flutter/src/domain/expectation_template.dart';
 
 class ExpectationTemplateService {
 

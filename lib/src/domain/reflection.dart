@@ -1,11 +1,13 @@
 import 'dart:convert';
-import 'package:deliberate_action_flutter/src/domain/expectation-template.dart';
+
+import 'expectation_template.dart';
 
 class Reflection {
   String uuid;
   Duration actualDurationSeconds;
   List reflectionResponses;
   ExpectationTemplate expectation;
+  DateTime updated;
 
   Reflection({
     this.uuid,
