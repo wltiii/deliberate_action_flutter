@@ -57,11 +57,10 @@ class _Expectation extends State<ExpectationWidget> {
                 maxLines: 3,
                 onChanged: (value){
                   _value = value;
-                  print(_value);
                 },
                 decoration: InputDecoration(
                     icon: Icon(Icons.subject),
-                    labelText: _expectation.expectation,
+                    labelText: _expectation.expectationQuestion,
                     hintText: _expectation.hint),
                 validator: (value) {
                   if (value.isEmpty) {
@@ -94,6 +93,10 @@ class _Expectation extends State<ExpectationWidget> {
                 child: RaisedButton(
                   onPressed: () {
 //                _activity.allottedDuration = _allottedDuration;
+                    print(_value);
+                    var args = new ScreenArguments(_expectation, _value);
+                    print(args.expectation);
+                    print(args.expectationTemplate.name);
                     Navigator.pushNamed(
                         context,
                         ActionTimerWidget.routeName,

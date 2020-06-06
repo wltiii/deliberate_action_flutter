@@ -4,12 +4,12 @@ class ExpectationTemplate {
   String uuid;
   String name;
   Duration allottedDuration;
-  String expectation;
+  String expectationQuestion;
   String hint;
   List reflectionQuestions;
 
   ExpectationTemplate(
-    this.expectation,
+    this.expectationQuestion,
     this.name,
     this.hint,
     this.allottedDuration,
@@ -20,7 +20,7 @@ class ExpectationTemplate {
   // TODO if going to have a named constructor, perhaps it should be the other?
   ExpectationTemplate.persisted(
     this.uuid,
-    this.expectation,
+    this.expectationQuestion,
     this.name,
     this.hint,
     this.allottedDuration,
@@ -32,7 +32,7 @@ class ExpectationTemplate {
     this.uuid = decoded['uuid'] ?? null;
     this.allottedDuration = Duration(minutes: decoded['allottedDuration']);
     this.name = decoded['name'];
-    this.expectation = decoded['expectation'];
+    this.expectationQuestion = decoded['expectation'];
     this.hint = decoded['hint'];
     this.reflectionQuestions = decoded['reflectionQuestions'];
   }

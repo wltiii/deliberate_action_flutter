@@ -78,5 +78,7 @@ class ReflectionService {
 
   Reflection _stubPostResponse(Reflection reflection) {
     reflection.uuid = Uuid().v4();
+    reflection.updated = DateTime.now();
+    return reflection;
   }
 }

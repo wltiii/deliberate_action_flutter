@@ -1,6 +1,7 @@
 import 'package:deliberate_action_flutter/src/domain/screen_arguments.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'domain/reflection.dart';
 import 'reflection-widget.dart';
 import 'domain/expectation_template.dart';
 
@@ -78,6 +79,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+
     // TODO this seems wrong. How can it be initialized from args without this method?
     initFromArgs(args);
 
@@ -87,7 +89,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
       ),
       body: Center(
           child: Column(children: <Widget>[
-            Text(args.expectationTemplate.expectation),
+            Text(args.expectationTemplate.expectationQuestion),
             Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
         // TODO add progress bar
         // TODO play alert sound when time is up (and show timer going negative?)
@@ -107,10 +109,18 @@ class _ActionTimer extends State<ActionTimerWidget> {
             tooltip: 'Stop',
             onPressed: () {
               stopTimer();
+              var reflection = new Reflection();
+              print(args.expectation);
+              print(args.expectationTemplate.name);
+              reflection.expectation = args.expectationTemplate;
+              reflection.expectionResponse = args.expectation;
+              reflection.actualDurationSeconds = _timeRemaining;
+              print(reflection.expectionResponse);
+              print(reflection.expectation.name);
               Navigator.pushNamed(
                   context,
                   ReflectionWidget.routeName,
-                  arguments: args,
+                  arguments: reflection,
               );
             },
           ),

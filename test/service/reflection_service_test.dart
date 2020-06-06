@@ -13,7 +13,7 @@ void main() {
     expect(reflection.reflectionResponses[0], equals('I came'));
     expect(reflection.reflectionResponses[1], equals('I saw'));
     expect(reflection.reflectionResponses[2], equals('I conquered'));
-    expect(reflection.expectation.expectation, equals("What do you plan to accomplish during this session?"));
+    expect(reflection.expectation.expectationQuestion, equals("What do you plan to accomplish during this session?"));
   });
 
   test('lists reflections', () {
@@ -23,26 +23,29 @@ void main() {
   });
 
   test('saves a new reflection', () {
-    final reflection = Reflection.fromJson('''{
-  "actualDurationSeconds": 570,
-  "reflectionResponses": [
-    "I came",
-    "I saw",
-    "I conquered"
-  ],
-  "expectation": {
-    "uuid": "1",
-    "name": "test 1",
-    "allottedDuration": 10,
-    "expectation": "What do you plan to accomplish during this session?",
-    "hint": "Enter your intention.",
-    "reflectionQuestions": [
-      "What happened during the allotted time?",
-      "What explains the difference?",
-      "What action can you take to improve outcomes?"
-    ]
-  }
-}''');
+//    final reflection = Reflection.fromJson('''{
+//  "actualDurationSeconds": 570,
+//  "reflectionResponses": [
+//    "I came",
+//    "I saw",
+//    "I conquered"
+//  ],
+//  "expectation": {
+//    "uuid": "1",
+//    "name": "test 1",
+//    "allottedDuration": 10,
+//    "expectation": "What do you plan to accomplish during this session?",
+//    "hint": "Enter your intention.",
+//    "reflectionQuestions": [
+//      "What happened during the allotted time?",
+//      "What explains the difference?",
+//      "What action can you take to improve outcomes?"
+//    ]
+//  }
+//}''');
+
+    final reflection = ReflectionService().get('10');
+    reflection.uuid = null;
 
     var before = DateTime.now();
     final result = ReflectionService().save(reflection);
@@ -50,10 +53,8 @@ void main() {
 
     expect(result, isNotNull);
     expect(result.uuid, isNotNull);
-    expect(result.updated, allOf(
-        greaterThanOrEqualTo(before),
-        lessThanOrEqualTo(after)
-    ));
+    expect(result.updated.compareTo(before), greaterThanOrEqualTo(0));
+    expect(result.updated.compareTo(after), lessThanOrEqualTo(0));
   });
 
 }

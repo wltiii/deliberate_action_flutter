@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'domain/screen_arguments.dart';
+import 'domain/reflection.dart';
 import 'expectation-widget.dart';
 
 // PostActivity page
@@ -8,10 +8,12 @@ import 'expectation-widget.dart';
 
 class ReflectionWidget extends StatelessWidget {
   static const routeName = '/reflection';
+  toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
 
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    final Reflection args = ModalRoute.of(context).settings.arguments;
+
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -20,7 +22,9 @@ class ReflectionWidget extends StatelessWidget {
       body: Center(
       child: Column(
           children: <Widget>[
-            Text(args.expectationTemplate.expectation),
+            Text(args.expectation.expectationQuestion),
+            Text(args.expectionResponse),
+            Text("Completed in ${toHHMMSS(args.actualDurationSeconds)}."),
             IconButton(
               padding: const EdgeInsets.only(),
               icon: Icon(Icons.lens),

@@ -5,6 +5,7 @@ import 'expectation_template.dart';
 class Reflection {
   String uuid;
   Duration actualDurationSeconds;
+  String expectionResponse;
   List reflectionResponses;
   ExpectationTemplate expectation;
   DateTime updated;
