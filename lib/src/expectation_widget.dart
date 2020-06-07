@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'domain/expectation_template.dart';
-import 'service/expectation_template_service.dart';
-import 'domain/screen_arguments.dart';
+
 import 'action_timer_widget.dart';
+import 'domain/expectation_template.dart';
+import 'domain/screen_arguments.dart';
+import 'service/expectation_template_service.dart';
 
 class ExpectationWidget extends StatefulWidget {
   static const routeName = '/expectation';
