@@ -8,12 +8,15 @@ void main() {
     final reflection = ReflectionService().get('10');
 
     expect(reflection.uuid, equals("10"));
-    expect(reflection.actualDurationSeconds, equals(Duration(minutes: 9, seconds: 30)));
+    expect(reflection.actualDurationSeconds,
+        equals(Duration(minutes: 9, seconds: 30)));
+    expect(reflection.expectationResponse.question,
+        equals("What do you plan to accomplish during this session?"));
+    expect(reflection.expectationResponse.answer, equals("Do something historical"));
     expect(reflection.reflectionResponses.length, equals(3));
     expect(reflection.reflectionResponses[0], equals('I came'));
     expect(reflection.reflectionResponses[1], equals('I saw'));
     expect(reflection.reflectionResponses[2], equals('I conquered'));
-    expect(reflection.expectation.expectationQuestion, equals("What do you plan to accomplish during this session?"));
   });
 
   test('lists reflections', () {

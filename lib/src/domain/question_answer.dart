@@ -1,14 +1,14 @@
-class QuestionResponse {
-  String expectationQuestion;
-  String expectionResponse;
+class QuestionAnswer {
+  String question;
+  String answer;
 
   // TODO discuss these constructor styles with Richard
 
-  // a parameterized constructor
+  // default parameterized constructor
   // see: https://flutterrdart.com/dart-classes-objects-and-constructors-with-examples/
-  QuestionResponse(
-    this.expectationQuestion,
-    this.expectionResponse,
+  QuestionAnswer(
+    this.question,
+    this.answer,
   );
 
   // default constructor using named arguments
@@ -16,12 +16,12 @@ class QuestionResponse {
   // TODO  do we want this a named constructor, or make it the default
   // TODO constructor? I think I prefer the latter.
   // TODO Is there a style check that would enforce default using named args?
-  QuestionResponse.named({
-    this.expectationQuestion,
-    this.expectionResponse,
+  QuestionAnswer.named({
+    this.question,
+    this.answer,
   });
 
   // a redirecting constructor
   // see: https://dart.dev/guides/language/language-tour#using-constructors
-  QuestionResponse.question(String question) : this(question, null);
+  QuestionAnswer.withQuestion(String question) : this(question, null);
 }

@@ -1,11 +1,12 @@
 import 'dart:convert';
 
 import 'expectation_template.dart';
+import 'question_answer.dart';
 
 class Reflection {
   String uuid;
   Duration actualDurationSeconds;
-  String expectionResponse;
+  QuestionAnswer expectationResponse;
   List reflectionResponses;
   ExpectationTemplate expectation;
   DateTime updated;
@@ -14,7 +15,7 @@ class Reflection {
   // see: https://flutterigniter.com/deconstructing-dart-constructors/
   Reflection({
     this.uuid,
-    this.expectionResponse,
+    this.expectationResponse,
     this.actualDurationSeconds,
     this.reflectionResponses,
     this.expectation,
@@ -25,14 +26,18 @@ class Reflection {
     this.uuid = decoded['uuid'] ?? null;
     this.actualDurationSeconds = Duration(seconds: decoded['actualDurationSeconds']);
     this.reflectionResponses = decoded['reflectionResponses'];
+    this.expectationResponse = QuestionAnswer.named(
+      question: decoded['expectation']['expectation'],
+      answer: decoded['expectationResponse'],
+    );
 
-    this.expectation = ExpectationTemplate.persisted(
-    decoded['expectation']['uuid'],
-    decoded['expectation']['expectation'],
-    decoded['expectation']['name'],
-    decoded['expectation']['hint'],
-    Duration(minutes: decoded['expectation']['allottedDuration']),
-    decoded['expectation']['reflectionQuestions'],
+    this.expectation = ExpectationTemplate.named(
+      uuid: decoded['expectation']['uuid'],
+      expectationQuestion: decoded['expectation']['expectation'],
+      name: decoded['expectation']['name'],
+      hint: decoded['expectation']['hint'],
+      allottedDuration: Duration(minutes: decoded['expectation']['allottedDuration']),
+      reflectionQuestions: decoded['expectation']['reflectionQuestions'],
     );
   }
 }

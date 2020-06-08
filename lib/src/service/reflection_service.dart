@@ -7,6 +7,7 @@ class ReflectionService {
   final reflection1 = Reflection.fromJson('''{
   "uuid": "10",
   "actualDurationSeconds": 570,
+  "expectationResponse": "Do something historical",
   "reflectionResponses": [
     "I came",
     "I saw",
@@ -30,6 +31,7 @@ class ReflectionService {
   final reflection2 = Reflection.fromJson('''{
   "uuid": "20",
   "actualDurationSeconds": 607,
+  "expectationResponse": "Do something wonderful",
   "reflectionResponses": [
     "I came",
     "I saw",

@@ -8,6 +8,8 @@ class ExpectationTemplate {
   String hint;
   List reflectionQuestions;
 
+  // default parameterized constructor
+  // see: https://flutterrdart.com/dart-classes-objects-and-constructors-with-examples/
   ExpectationTemplate(
     this.expectationQuestion,
     this.name,
@@ -18,14 +20,14 @@ class ExpectationTemplate {
 
   // TODO it seems effective style or such suggested doing this differently
   // TODO if going to have a named constructor, perhaps it should be the other?
-  ExpectationTemplate.persisted(
+  ExpectationTemplate.named({
     this.uuid,
-    this.expectationQuestion,
     this.name,
-    this.hint,
     this.allottedDuration,
-    this.reflectionQuestions
-  );
+    this.expectationQuestion,
+    this.hint,
+    this.reflectionQuestions,
+  });
 
   ExpectationTemplate.fromJson(String json) {
     Map decoded = jsonDecode(json);

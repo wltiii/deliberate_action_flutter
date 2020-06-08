@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import 'domain/question_answer.dart';
 import 'domain/reflection.dart';
 import 'domain/screen_arguments.dart';
 import 'reflection_widget.dart';
@@ -109,7 +110,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
 //              var reflection = Reflection();
               var reflection = Reflection(
                   expectation: args.expectationTemplate,
-                  expectionResponse: args.expectation,
+                  expectationResponse: QuestionAnswer.withQuestion(args.expectation),
                   actualDurationSeconds: _timeRemaining,
               );
 //              print(args.expectation);

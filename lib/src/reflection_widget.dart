@@ -28,7 +28,7 @@ class ReflectionWidget extends StatelessWidget {
                 style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              args.expectionResponse,
+              args.expectationResponse,
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal),
             ),
             Text(
