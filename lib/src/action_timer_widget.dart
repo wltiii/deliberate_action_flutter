@@ -44,20 +44,16 @@ class _ActionTimer extends State<ActionTimerWidget> {
     super.initState();
   }
 
-  startTimer() {
-    _timer = new Timer.periodic(timeout, handleTimerEvent);
-  }
+  startTimer() => _timer = Timer.periodic(timeout, handleTimerEvent);
 
-  void stopTimer() {
-    _timer.cancel();
-  }
+  void stopTimer() => _timer.cancel();
 
   void handleTimerEvent(Timer timer) {
     setState(() {
       _timeRemaining = _timeRemaining - timeout;
       if (_timeRemaining.inMilliseconds == 0) {
         print(
-            'We need to alert now - visual and audio and tactile (configurable)');
+          'ALERT NOW - visual and audio and tactile (configurable)');
         stopTimer();
       }
     });
@@ -110,14 +106,19 @@ class _ActionTimer extends State<ActionTimerWidget> {
             tooltip: 'Stop',
             onPressed: () {
               stopTimer();
-              var reflection = new Reflection();
-              print(args.expectation);
-              print(args.expectationTemplate.name);
-              reflection.expectation = args.expectationTemplate;
-              reflection.expectionResponse = args.expectation;
-              reflection.actualDurationSeconds = _timeRemaining;
-              print(reflection.expectionResponse);
-              print(reflection.expectation.name);
+//              var reflection = Reflection();
+              var reflection = Reflection(
+                  expectation: args.expectationTemplate,
+                  expectionResponse: args.expectation,
+                  actualDurationSeconds: _timeRemaining,
+              );
+//              print(args.expectation);
+//              print(args.expectationTemplate.name);
+//              reflection.expectation = args.expectationTemplate;
+//              reflection.expectionResponse = args.expectation;
+//              reflection.actualDurationSeconds = _timeRemaining;
+//              print(reflection.expectionResponse);
+//              print(reflection.expectation.name);
               Navigator.pushNamed(
                   context,
                   ReflectionWidget.routeName,

@@ -23,12 +23,21 @@ class ReflectionWidget extends StatelessWidget {
       body: Center(
       child: Column(
           children: <Widget>[
-            Text(args.expectation.expectationQuestion),
-            Text(args.expectionResponse),
-            Text("Completed in ${toHHMMSS(args.actualDurationSeconds)}."),
+            Text(
+                args.expectation.expectationQuestion,
+                style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              args.expectionResponse,
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal),
+            ),
+            Text(
+              "Completed in ${toHHMMSS(args.actualDurationSeconds)}.",
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal),
+            ),
             IconButton(
               padding: const EdgeInsets.only(),
-              icon: Icon(Icons.lens),
+              icon: Icon(Icons.stop),
               tooltip: 'Done',
               onPressed: () {
                 Navigator.popUntil(

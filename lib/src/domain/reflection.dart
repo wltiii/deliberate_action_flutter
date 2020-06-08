@@ -10,8 +10,11 @@ class Reflection {
   ExpectationTemplate expectation;
   DateTime updated;
 
+  // default constructor using named arguments
+  // see: https://flutterigniter.com/deconstructing-dart-constructors/
   Reflection({
     this.uuid,
+    this.expectionResponse,
     this.actualDurationSeconds,
     this.reflectionResponses,
     this.expectation,
