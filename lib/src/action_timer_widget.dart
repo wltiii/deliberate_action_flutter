@@ -110,7 +110,10 @@ class _ActionTimer extends State<ActionTimerWidget> {
 //              var reflection = Reflection();
               var reflection = Reflection(
                   expectation: args.expectationTemplate,
-                  expectationResponse: QuestionAnswer.withQuestion(args.expectation),
+                  expectationResponse: QuestionAnswer.named(
+                    question: args.expectationTemplate.expectationQuestion,
+                    answer: args.expectation,
+                  ),
                   actualDurationSeconds: _timeRemaining,
               );
 //              print(args.expectation);

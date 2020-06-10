@@ -95,7 +95,10 @@ class _Expectation extends State<ExpectationWidget> {
                   onPressed: () {
 //                _activity.allottedDuration = _allottedDuration;
                     print(_value);
-                    var args = new ScreenArguments(_expectation, _value);
+                    var args = ScreenArguments.named(
+                        expectationTemplate: _expectation,
+                        expectation: _value,
+                    );
                     print(args.expectation);
                     print(args.expectationTemplate.name);
                     Navigator.pushNamed(

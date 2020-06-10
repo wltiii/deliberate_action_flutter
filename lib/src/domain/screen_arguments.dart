@@ -5,4 +5,5 @@ class ScreenArguments{
   final String expectation;
 
   ScreenArguments(this.expectationTemplate, this.expectation);
+  ScreenArguments.named({this.expectationTemplate, this.expectation});
 }
