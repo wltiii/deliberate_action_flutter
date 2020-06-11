@@ -26,14 +26,14 @@ class ReflectionWidget extends StatelessWidget {
             Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  args.expectation.expectationQuestion,
+                  args.expectationTemplate.expectationQuestion,
                   style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
                 )
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                args.expectationResponse.answer,
+                args.expectation.answer,
                 style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal),
               ),
             ),
@@ -45,8 +45,10 @@ class ReflectionWidget extends StatelessWidget {
               )
             ),
             Column(
-              children: args.expectation.reflectionQuestions.map((question) =>
-                _buildReflections(question)).toList(),
+              children: args.expectationTemplate.reflectionQuestions.map((question) =>
+                  _buildReflections(question)).toList(),
+//              children: args.expectation.reflectionQuestions.map((question) =>
+//                _buildReflections(question)).toList(),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),

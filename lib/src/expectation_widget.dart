@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'action_timer_widget.dart';
 import 'domain/expectation_template.dart';
+import 'domain/reflection.dart';
 import 'domain/screen_arguments.dart';
 import 'service/expectation_template_service.dart';
 
@@ -17,6 +18,7 @@ class ExpectationWidget extends StatefulWidget {
 
 class _Expectation extends State<ExpectationWidget> {
   ExpectationTemplate _expectation = new ExpectationTemplateService().get('1');
+  Reflection _reflection;
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
   String _value;

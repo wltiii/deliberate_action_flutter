@@ -4,35 +4,45 @@ import 'expectation_template.dart';
 import 'question_answer.dart';
 
 class Reflection {
-  String uuid;
-  Duration actualDurationSeconds;
-  QuestionAnswer expectationResponse;
+  String id;
+  QuestionAnswer expectation;
+  List<QuestionAnswer> reflections;
+  // TODO remove reflection responses
   List reflectionResponses;
-  ExpectationTemplate expectation;
+  Duration allottedDuration;
+  Duration actualDurationSeconds;
+  ExpectationTemplate expectationTemplate;
+  // TODO what happens if the expecation is changed?
+  // TODO What about searching? Wouldn't it be by name?
+  String expectationId;
+  String userId;
   DateTime updated;
 
   // default constructor using named arguments
   // see: https://flutterigniter.com/deconstructing-dart-constructors/
+  // TODO update constructors
   Reflection({
-    this.uuid,
-    this.expectationResponse,
+    this.id,
+    this.expectation,
+    this.allottedDuration,
     this.actualDurationSeconds,
     this.reflectionResponses,
-    this.expectation,
+    this.reflections,
+    this.expectationTemplate,
   });
 
   Reflection.fromJson(String json) {
     Map decoded = jsonDecode(json);
-    this.uuid = decoded['uuid'] ?? null;
+    this.id = decoded['uuid'] ?? null;
     this.actualDurationSeconds = Duration(seconds: decoded['actualDurationSeconds']);
     this.reflectionResponses = decoded['reflectionResponses'];
-    this.expectationResponse = QuestionAnswer.named(
+    this.expectation = QuestionAnswer.named(
       question: decoded['expectation']['expectation'],
       answer: decoded['expectationResponse'],
     );
 
-    this.expectation = ExpectationTemplate.named(
-      uuid: decoded['expectation']['uuid'],
+    this.expectationTemplate = ExpectationTemplate.named(
+      id: decoded['expectation']['uuid'],
       expectationQuestion: decoded['expectation']['expectation'],
       name: decoded['expectation']['name'],
       hint: decoded['expectation']['hint'],

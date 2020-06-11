@@ -109,8 +109,8 @@ class _ActionTimer extends State<ActionTimerWidget> {
               stopTimer();
 //              var reflection = Reflection();
               var reflection = Reflection(
-                  expectation: args.expectationTemplate,
-                  expectationResponse: QuestionAnswer.named(
+                  expectationTemplate: args.expectationTemplate,
+                  expectation: QuestionAnswer.named(
                     question: args.expectationTemplate.expectationQuestion,
                     answer: args.expectation,
                   ),

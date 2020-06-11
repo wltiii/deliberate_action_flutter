@@ -61,7 +61,7 @@ class ReflectionService {
   }
 
   Reflection save(Reflection reflection) {
-    if (reflection.uuid == null) {
+    if (reflection.id == null) {
       return _stubPostResponse(reflection);
     }
 //    return stubPutResponse(reflection);
@@ -79,7 +79,7 @@ class ReflectionService {
   }
 
   Reflection _stubPostResponse(Reflection reflection) {
-    reflection.uuid = Uuid().v4();
+    reflection.id = Uuid().v4();
     reflection.updated = DateTime.now();
     return reflection;
   }

@@ -7,12 +7,12 @@ void main() {
   test('gets a reflection', () {
     final reflection = ReflectionService().get('10');
 
-    expect(reflection.uuid, equals("10"));
+    expect(reflection.id, equals("10"));
     expect(reflection.actualDurationSeconds,
         equals(Duration(minutes: 9, seconds: 30)));
-    expect(reflection.expectationResponse.question,
+    expect(reflection.expectation.question,
         equals("What do you plan to accomplish during this session?"));
-    expect(reflection.expectationResponse.answer, equals("Do something historical"));
+    expect(reflection.expectation.answer, equals("Do something historical"));
     expect(reflection.reflectionResponses.length, equals(3));
     expect(reflection.reflectionResponses[0], equals('I came'));
     expect(reflection.reflectionResponses[1], equals('I saw'));
@@ -48,14 +48,14 @@ void main() {
 //}''');
 
     final reflection = ReflectionService().get('10');
-    reflection.uuid = null;
+    reflection.id = null;
 
     var before = DateTime.now();
     final result = ReflectionService().save(reflection);
     var after = DateTime.now();
 
     expect(result, isNotNull);
-    expect(result.uuid, isNotNull);
+    expect(result.id, isNotNull);
     expect(result.updated.compareTo(before), greaterThanOrEqualTo(0));
     expect(result.updated.compareTo(after), lessThanOrEqualTo(0));
   });
