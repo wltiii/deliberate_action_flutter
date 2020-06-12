@@ -20,17 +20,20 @@ class Reflection {
 
   // default constructor using named arguments
   // see: https://flutterigniter.com/deconstructing-dart-constructors/
-  // TODO update constructors
   Reflection({
     this.id,
     this.expectation,
+    this.reflections,
+    this.reflectionResponses,
     this.allottedDuration,
     this.actualDurationSeconds,
-    this.reflectionResponses,
-    this.reflections,
     this.expectationTemplate,
+    this.expectationId,
+    this.userId,
+    this.updated,
   });
 
+  // TODO update constructor
   Reflection.fromJson(String json) {
     Map decoded = jsonDecode(json);
     this.id = decoded['uuid'] ?? null;
