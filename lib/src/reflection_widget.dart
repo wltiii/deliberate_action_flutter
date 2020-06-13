@@ -26,7 +26,7 @@ class ReflectionWidget extends StatelessWidget {
             Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  args.expectationTemplate.expectationQuestion,
+                  args.expectation.question,
                   style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
                 )
             ),
@@ -45,10 +45,8 @@ class ReflectionWidget extends StatelessWidget {
               )
             ),
             Column(
-              children: args.expectationTemplate.reflectionQuestions.map((question) =>
-                  _buildReflections(question)).toList(),
-//              children: args.expectation.reflectionQuestions.map((question) =>
-//                _buildReflections(question)).toList(),
+              children: args.reflections.map((reflection) =>
+                  _buildReflections(reflection.question)).toList(),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),

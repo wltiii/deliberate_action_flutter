@@ -12,10 +12,10 @@ void main() {
     expect(reflection.expectation.question,
         equals("What do you plan to accomplish during this session?"));
     expect(reflection.expectation.answer, equals("Do something historical"));
-    expect(reflection.reflectionResponses.length, equals(3));
-    expect(reflection.reflectionResponses[0], equals('I came'));
-    expect(reflection.reflectionResponses[1], equals('I saw'));
-    expect(reflection.reflectionResponses[2], equals('I conquered'));
+    expect(reflection.reflections.length, equals(3));
+    expect(reflection.reflections[0].answer, equals('I came'));
+    expect(reflection.reflections[1].answer, equals('I saw'));
+    expect(reflection.reflections[2].answer, equals('I conquered'));
   });
 
   test('lists reflections', () {

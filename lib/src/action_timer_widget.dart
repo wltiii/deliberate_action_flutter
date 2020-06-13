@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'domain/question_answer.dart';
 import 'domain/reflection.dart';
-import 'domain/screen_arguments.dart';
 import 'reflection_widget.dart';
 
 // stopwatch page
@@ -76,7 +75,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    final Reflection args = ModalRoute.of(context).settings.arguments;
 
     // TODO this seems wrong. How can it be initialized from args without this method?
     initFromArgs(args);
@@ -87,7 +86,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
       ),
       body: Center(
           child: Column(children: <Widget>[
-            Text(args.expectationTemplate.expectationQuestion),
+            Text(args.expectation.question),
             Text('Time remaining ${toHHMMSS(_timeRemaining)}.'),
         // TODO add progress bar
         // TODO play alert sound when time is up (and show timer going negative?)
@@ -107,26 +106,11 @@ class _ActionTimer extends State<ActionTimerWidget> {
             tooltip: 'Stop',
             onPressed: () {
               stopTimer();
-//              var reflection = Reflection();
-              var reflection = Reflection(
-                  expectationTemplate: args.expectationTemplate,
-                  expectation: QuestionAnswer.named(
-                    question: args.expectationTemplate.expectationQuestion,
-                    answer: args.expectation,
-                  ),
-                  actualDurationSeconds: _timeRemaining,
-              );
-//              print(args.expectation);
-//              print(args.expectationTemplate.name);
-//              reflection.expectation = args.expectationTemplate;
-//              reflection.expectionResponse = args.expectation;
-//              reflection.actualDurationSeconds = _timeRemaining;
-//              print(reflection.expectionResponse);
-//              print(reflection.expectation.name);
+                  args.actualDurationSeconds = _timeRemaining;
               Navigator.pushNamed(
                   context,
                   ReflectionWidget.routeName,
-                  arguments: reflection,
+                  arguments: args,
               );
             },
           ),
@@ -135,9 +119,9 @@ class _ActionTimer extends State<ActionTimerWidget> {
     );
   }
 
-  initFromArgs(ScreenArguments args) {
+  initFromArgs(Reflection args) {
     if (!_initialized) {
-      _timeRemaining = args.expectationTemplate.allottedDuration;
+      _timeRemaining = args.allottedDuration;
       _initialized = true;
     }
   }

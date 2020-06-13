@@ -7,13 +7,13 @@ class Reflection {
   String id;
   QuestionAnswer expectation;
   List<QuestionAnswer> reflections;
-  // TODO remove reflection responses
-  List reflectionResponses;
   Duration allottedDuration;
   Duration actualDurationSeconds;
-  ExpectationTemplate expectationTemplate;
-  // TODO what happens if the expecation is changed?
+  // TODO what happens if the expectation template changes?
+  //  TODO i.e. reflections, etc. might possibly not align
   // TODO What about searching? Wouldn't it be by name?
+//  ExpectationTemplate expectationTemplate;
+  String name;
   String expectationId;
   String userId;
   DateTime updated;
@@ -24,33 +24,52 @@ class Reflection {
     this.id,
     this.expectation,
     this.reflections,
-    this.reflectionResponses,
     this.allottedDuration,
     this.actualDurationSeconds,
-    this.expectationTemplate,
+    this.name,
     this.expectationId,
     this.userId,
     this.updated,
   });
 
-  // TODO update constructor
+  Reflection.fromExpectationTemplate(ExpectationTemplate template) {
+    expectation = QuestionAnswer.withQuestion(template.expectationQuestion);
+    // TODO can reflections be instantiated in a one-liner?
+    reflections = [];
+    template.reflectionQuestions.forEach((reflection) {
+      reflections.add(QuestionAnswer.withQuestion(reflection));
+    });
+    allottedDuration = template.allottedDuration;
+    name = template.name;
+    expectationId = template.id;
+  }
+
   Reflection.fromJson(String json) {
     Map decoded = jsonDecode(json);
     this.id = decoded['uuid'] ?? null;
-    this.actualDurationSeconds = Duration(seconds: decoded['actualDurationSeconds']);
-    this.reflectionResponses = decoded['reflectionResponses'];
+    this.actualDurationSeconds =
+        Duration(seconds: decoded['actualDurationSeconds']);
     this.expectation = QuestionAnswer.named(
       question: decoded['expectation']['expectation'],
       answer: decoded['expectationResponse'],
     );
 
-    this.expectationTemplate = ExpectationTemplate.named(
-      id: decoded['expectation']['uuid'],
-      expectationQuestion: decoded['expectation']['expectation'],
-      name: decoded['expectation']['name'],
-      hint: decoded['expectation']['hint'],
-      allottedDuration: Duration(minutes: decoded['expectation']['allottedDuration']),
-      reflectionQuestions: decoded['expectation']['reflectionQuestions'],
-    );
+    reflections = [];
+    decoded['expectation']['reflectionQuestions'].forEach((question) {
+      reflections.add(QuestionAnswer.withQuestion(question));
+    });
+
+    List responses = decoded['reflectionResponses'];
+    for(var i = 0; i < reflections.length; i++) {
+      reflections[i].answer = i < reflections.length ? responses[i] : null;
+    }
+
+    allottedDuration =
+        Duration(minutes: decoded['expectation']['allottedDuration']);
+
+    name = decoded['expectation']['name'];
+    expectationId = decoded['expectation']['uuid'];
+    userId = decoded['userId'];
+    updated = DateTime.parse(decoded['updated']);
   }
 }

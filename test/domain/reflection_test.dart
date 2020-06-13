@@ -27,15 +27,10 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
             answer: "Use deliberate practice to focus on what is important.",
           ),
         ],
-        reflectionResponses: [
-          "This will go away",
-        ],
         allottedDuration: Duration(seconds: 600),
         actualDurationSeconds: Duration(seconds: 570),
-        expectationTemplate: ExpectationTemplate.named(
-          name: 'This is going away. Not filling in anymore',
-        ),
         expectationId: '10',
+        name: "test 1",
         userId: 'Per Son',
         updated: DateTime.now(),
       );
@@ -51,23 +46,62 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
       expect(reflection.reflections[1].answer, equals("I gave it a shot"));
       expect(reflection.reflections[2].question, equals("What action can you take to improve outcomes?"));
       expect(reflection.reflections[2].answer, equals("Use deliberate practice to focus on what is important."));
-      expect(reflection.reflectionResponses, equals([
-        "This will go away",
-      ]));
       expect(reflection.allottedDuration, equals(Duration(minutes: 10)));
       expect(reflection.actualDurationSeconds,
           equals(Duration(minutes: 9, seconds: 30)));
-      expect(reflection.expectationTemplate.name, equals('This is going away. Not filling in anymore'));
+      expect(reflection.name, equals("test 1"));
       expect(reflection.expectationId, equals('10'));
       expect(reflection.userId, equals('Per Son'));
       expect(reflection.updated, isNotNull);
+    });
+
+    test('instantiates from ExpectationTemplate', () {
+      final template = ExpectationTemplate.fromJson('''{
+  "uuid": "1",
+  "name": "test 1",
+  "allottedDuration": 10,
+  "expectation": "What do you plan to accomplish during this session?",
+  "hint": "Enter your intention.",
+  "reflectionQuestions": [
+    "What happened during the allotted time?",
+    "What explains the difference?",
+    "What action can you take to improve outcomes?"
+  ]
+}''');
+
+      final reflection = Reflection.fromExpectationTemplate(template);
+
+
+      expect(reflection.id, isNull);
+      expect(reflection.userId, isNull);
+      expect(reflection.updated, isNull);
+      expect(reflection.userId, isNull);
+      expect(reflection.updated, isNull);
+      expect(reflection.expectation.question,
+          equals("What do you plan to accomplish during this session?"));
+      expect(reflection.expectation.answer, isNull);
+      expect(reflection.reflections.length,
+          equals(template.reflectionQuestions.length));
+      expect(reflection.reflections[0].question,
+          equals("What happened during the allotted time?"));
+      expect(reflection.reflections[0].answer, isNull);
+      expect(reflection.reflections[1].question,
+          equals("What explains the difference?"));
+      expect(reflection.reflections[1].answer, isNull);
+      expect(reflection.reflections[2].question,
+          equals("What action can you take to improve outcomes?"));
+      expect(reflection.reflections[2].answer, isNull);
+      expect(reflection.allottedDuration, equals(Duration(minutes: 10)));
+      expect(reflection.actualDurationSeconds, isNull);
+      expect(reflection.name, equals("test 1"));
+      expect(reflection.expectationId, equals('1'));
     });
 
     test('instantiates from json constructor', () {
       final json = ('''{
   "uuid": "10",
   "actualDurationSeconds": 570,
-  "expectationResponse": "Do something historical",
+  "expectationResponse": "Do something wonderful",
   "reflectionResponses": [
     "I came",
     "I saw",
@@ -85,6 +119,7 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
       "What action can you take to improve outcomes?"
     ]
   },
+  "userId": "Per Son",
   "updated": "2007-12-01T12:00:00.000Z"
 }''');
 
@@ -93,24 +128,22 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
       expect(reflection.id, equals("10"));
       expect(reflection.expectation.question,
           equals("What do you plan to accomplish during this session?"));
-      expect(reflection.expectation.answer, equals("Something wonderful"));
+      expect(reflection.expectation.answer, equals("Do something wonderful"));
       expect(reflection.reflections.length, equals(3));
       expect(reflection.reflections[0].question, equals("What happened during the allotted time?"));
-      expect(reflection.reflections[0].answer, equals("My dreams were fulfilled"));
+      expect(reflection.reflections[0].answer, equals("I came"));
       expect(reflection.reflections[1].question, equals("What explains the difference?"));
-      expect(reflection.reflections[1].answer, equals("I gave it a shot"));
+      expect(reflection.reflections[1].answer, equals("I saw"));
       expect(reflection.reflections[2].question, equals("What action can you take to improve outcomes?"));
-      expect(reflection.reflections[2].answer, equals("Use deliberate practice to focus on what is important."));
-      expect(reflection.reflectionResponses, equals([
-        "This will go away",
-      ]));
+      expect(reflection.reflections[2].answer, equals("I conquered"));
       expect(reflection.allottedDuration, equals(Duration(minutes: 10)));
       expect(reflection.actualDurationSeconds,
           equals(Duration(minutes: 9, seconds: 30)));
-      expect(reflection.expectationTemplate.name, equals('This is going away. Not filling in anymore'));
-      expect(reflection.expectationId, equals('10'));
+      expect(reflection.name, equals("test 1"));
+      expect(reflection.expectationId, equals('1'));
       expect(reflection.userId, equals('Per Son'));
-      expect(reflection.updated, isNotNull);
+      expect(reflection.updated,
+          equals(DateTime.parse("2007-12-01T12:00:00.000Z")));
     });
 
   }
