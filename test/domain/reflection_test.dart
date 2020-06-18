@@ -1,4 +1,4 @@
-import 'package:deliberate_action_flutter/src/domain/expectation_template.dart';
+import 'package:deliberate_action_flutter/src/domain/plan_template.dart';
 import 'package:deliberate_action_flutter/src/domain/question_answer.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
@@ -56,7 +56,7 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
     });
 
     test('instantiates from ExpectationTemplate', () {
-      final template = ExpectationTemplate.fromJson('''{
+      final template = PlanTemplate.fromJson('''{
   "uuid": "1",
   "name": "test 1",
   "allottedDuration": 10,
@@ -69,7 +69,7 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
   ]
 }''');
 
-      final reflection = Reflection.fromExpectationTemplate(template);
+      final reflection = Reflection.fromPlan(template);
 
 
       expect(reflection.id, isNull);

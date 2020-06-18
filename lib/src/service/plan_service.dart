@@ -1,8 +1,8 @@
-import 'package:deliberate_action_flutter/src/domain/expectation_template.dart';
+import 'package:deliberate_action_flutter/src/domain/plan_template.dart';
 
-class ExpectationTemplateService {
+class PlanService {
 
-  final template1 = ExpectationTemplate.fromJson('''{
+  final template1 = PlanTemplate.fromJson('''{
   "uuid": "1",
   "name": "test 1",
   "allottedDuration": 10,
@@ -15,7 +15,7 @@ class ExpectationTemplateService {
   ]
 }''');
 
-  final template2 = ExpectationTemplate.fromJson('''{
+  final template2 = PlanTemplate.fromJson('''{
   "uuid": "2",
   "name": "test 2",
   "allottedDuration": 45,
@@ -28,15 +28,15 @@ class ExpectationTemplateService {
   ]
 }''');
 
-  ExpectationTemplate get(String uuid) {
+  PlanTemplate get(String uuid) {
     return stubResponse(uuid);
   }
 
-  List<ExpectationTemplate> list(String user) {
+  List<PlanTemplate> list(String user) {
     return [template1, template2];
   }
 
-  ExpectationTemplate stubResponse(String uuid) {
+  PlanTemplate stubResponse(String uuid) {
     if (uuid == "1") {
       return template1;
     }

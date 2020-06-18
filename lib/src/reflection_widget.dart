@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'domain/reflection.dart';
-import 'expectation_widget.dart';
+import 'plan_widget.dart';
 
 // PostActivity page
 // show postActivityHints
@@ -59,7 +59,7 @@ class ReflectionWidget extends StatelessWidget {
                 tooltip: 'Done',
                 onPressed: () {
                   Navigator.popUntil(
-                      context, ModalRoute.withName(ExpectationWidget.routeName));
+                      context, ModalRoute.withName(PlanWidget.routeName));
                 },
               ),
 

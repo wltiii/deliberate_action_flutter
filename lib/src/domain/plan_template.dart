@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class ExpectationTemplate {
+class PlanTemplate {
   String id;
   String name;
   Duration allottedDuration;
@@ -12,8 +12,8 @@ class ExpectationTemplate {
 
   // default parameterized constructor
   // see: https://flutterrdart.com/dart-classes-objects-and-constructors-with-examples/
-  // TODO update constructors
-  ExpectationTemplate(
+  // TODO use factory constructor?
+  PlanTemplate(
     this.expectationQuestion,
     this.name,
     this.hint,
@@ -23,7 +23,7 @@ class ExpectationTemplate {
 
   // TODO it seems effective style or such suggested doing this differently
   // TODO if going to have a named constructor, perhaps it should be the other?
-  ExpectationTemplate.named({
+  PlanTemplate.named({
     this.id,
     this.name,
     this.allottedDuration,
@@ -32,7 +32,7 @@ class ExpectationTemplate {
     this.reflectionQuestions,
   });
 
-  ExpectationTemplate.fromJson(String json) {
+  PlanTemplate.fromJson(String json) {
     Map decoded = jsonDecode(json);
     this.id = decoded['uuid'] ?? null;
     this.allottedDuration = Duration(minutes: decoded['allottedDuration']);

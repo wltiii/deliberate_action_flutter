@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'expectation_template.dart';
+import 'plan_template.dart';
 import 'question_answer.dart';
 
 class Reflection {
@@ -32,7 +32,7 @@ class Reflection {
     this.updated,
   });
 
-  Reflection.fromExpectationTemplate(ExpectationTemplate template) {
+  Reflection.fromPlan(PlanTemplate template) {
     expectation = QuestionAnswer.withQuestion(template.expectationQuestion);
     // TODO can reflections be instantiated in a one-liner?
     reflections = [];

@@ -1,6 +1,6 @@
 import 'package:deliberate_action_flutter/src/reflection_widget.dart';
 import 'package:flutter/material.dart';
-import 'src/expectation_widget.dart';
+import 'src/plan_widget.dart';
 import 'src/action_timer_widget.dart';
 import 'src/reflection_widget.dart';
 
@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: ExpectationWidget.routeName,
+      initialRoute: PlanWidget.routeName,
       routes: {
-        ExpectationWidget.routeName: (context) => ExpectationWidget(title: appTitle),
+        PlanWidget.routeName: (context) => PlanWidget(title: appTitle),
         ActionTimerWidget.routeName: (context) => ActionTimerWidget(),
         ReflectionWidget.routeName: (context) => ReflectionWidget(),
       },

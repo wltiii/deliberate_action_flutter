@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'action_timer_widget.dart';
-import 'domain/expectation_template.dart';
-import 'domain/question_answer.dart';
+import 'domain/plan_template.dart';
 import 'domain/reflection.dart';
-import 'service/expectation_template_service.dart';
+import 'service/plan_service.dart';
 
-class ExpectationWidget extends StatefulWidget {
+class PlanWidget extends StatefulWidget {
   static const routeName = '/expectation';
-  ExpectationWidget({Key key, this.title}) : super(key: key);
+  PlanWidget({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _Expectation createState() => _Expectation();
+  _Plan createState() => _Plan();
 }
 
-class _Expectation extends State<ExpectationWidget> {
-  ExpectationTemplate _expectation = new ExpectationTemplateService().get('1');
+class _Plan extends State<PlanWidget> {
+  final PlanTemplate _plan = PlanService().get('1');
   Reflection _reflection;
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
@@ -32,14 +31,14 @@ class _Expectation extends State<ExpectationWidget> {
 
   void _incrementMinutes() {
     setState(() {
-      _expectation.allottedDuration += oneMinute;
+      _plan.allottedDuration += oneMinute;
     });
   }
 
   void _decrementMinutes() {
     setState(() {
-      if (_expectation.allottedDuration > oneMinute) {
-        _expectation.allottedDuration -= oneMinute;
+      if (_plan.allottedDuration > oneMinute) {
+        _plan.allottedDuration -= oneMinute;
       }
     });
   }
@@ -62,8 +61,8 @@ class _Expectation extends State<ExpectationWidget> {
                 },
                 decoration: InputDecoration(
                     icon: Icon(Icons.subject),
-                    labelText: _expectation.expectationQuestion,
-                    hintText: _expectation.hint),
+                    labelText: _plan.expectationQuestion,
+                    hintText: _plan.hint),
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Enter some text';
@@ -75,7 +74,7 @@ class _Expectation extends State<ExpectationWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                      'Time allotted to complete action is ${toHHMMSS(_expectation.allottedDuration)}.'),
+                      'Time allotted to complete action is ${toHHMMSS(_plan.allottedDuration)}.'),
                   IconButton(
                     padding: const EdgeInsets.only(),
                     icon: Icon(Icons.add_circle_outline),
@@ -94,7 +93,7 @@ class _Expectation extends State<ExpectationWidget> {
                 padding: const EdgeInsets.all(16.0),
                 child: RaisedButton(
                   onPressed: () {
-                    var args = Reflection.fromExpectationTemplate(_expectation);
+                    var args = Reflection.fromPlan(_plan);
                     args.expectation.answer = _value;
                     Navigator.pushNamed(
                         context,
