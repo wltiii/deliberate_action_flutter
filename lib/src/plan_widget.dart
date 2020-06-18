@@ -65,7 +65,7 @@ class _Plan extends State<PlanWidget> {
                     hintText: _plan.hint),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Enter some text';
+                    return 'Please enter what you are planning.';
                   }
                   return null;
                 },
@@ -93,21 +93,21 @@ class _Plan extends State<PlanWidget> {
                 padding: const EdgeInsets.all(16.0),
                 child: RaisedButton(
                   onPressed: () {
-                    var args = Reflection.fromPlan(_plan);
-                    args.expectation.answer = _value;
-                    Navigator.pushNamed(
+                    if (_formKey.currentState.validate()) {
+// TODO not sure if i want a snack bar. maybe on reflection page.
+    //                  Scaffold.of(context).showSnackBar(
+    //                      SnackBar(
+    //                          content: Text('Processing Data')
+    //                      )
+    //                  );
+                      var args = Reflection.fromPlan(_plan);
+                      args.expectation.answer = _value;
+                      Navigator.pushNamed(
                         context,
                         ActionTimerWidget.routeName,
                         arguments: args,
-                    );
-// TODO SnackBar belongs on clock page but may be used here for errors
-//                if (_formKey.currentState.validate()) {
-//                  Scaffold.of(context).showSnackBar(
-//                      SnackBar(
-//                          content: Text('Processing Data')
-//                      )
-//                  );
-//                }
+                      );
+                    }
                   },
                   child: Text('Start Activity'),
                 ),
