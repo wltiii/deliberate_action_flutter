@@ -1,7 +1,7 @@
-import 'package:deliberate_action_flutter/src/reflection_widget.dart';
 import 'package:flutter/material.dart';
-import 'src/plan_widget.dart';
+
 import 'src/action_timer_widget.dart';
+import 'src/plan_widget.dart';
 import 'src/reflection_widget.dart';
 
 void main() => runApp(MyApp());
