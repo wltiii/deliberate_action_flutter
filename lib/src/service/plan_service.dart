@@ -28,6 +28,19 @@ class PlanService {
   ]
 }''');
 
+  final template3 = PlanTemplate.fromJson('''{
+  "uuid": "3",
+  "name": "test 3",
+  "allottedDuration": 1,
+  "expectation": "What do you expect to do with so little time?",
+  "hint": "Enter your intention.",
+  "reflectionQuestions": [
+    "Was it completed?",
+    "What explains the difference?",
+    "What action can you take to improve outcomes?"
+  ]
+}''');
+
   PlanTemplate get(String uuid) {
     return stubResponse(uuid);
   }
@@ -42,6 +55,9 @@ class PlanService {
     }
     if (uuid == "2") {
       return template2;
+    }
+    if (uuid == "3") {
+      return template3;
     }
     return null;
   }

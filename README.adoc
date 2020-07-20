@@ -62,6 +62,7 @@ keep it simple so that I may _learn_, _reflect_ and modify my _practice_.*
 * None at present
 
 === References and other resources
+* Make It Stick - Brown, Peter C., Roediger III, Henry L., McDaniel, Mark A.
 * Peak: Secrets from the New Science of Expertise by Anders Ericsson and Robert Pool
 +
 This book strongly reinforced the do and review process to improvement.

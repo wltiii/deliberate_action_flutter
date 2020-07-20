@@ -7,6 +7,7 @@ import 'service/plan_service.dart';
 
 class PlanWidget extends StatefulWidget {
   static const routeName = '/expectation';
+
   PlanWidget({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -56,7 +57,7 @@ class _Plan extends State<PlanWidget> {
               TextFormField(
                 keyboardType: TextInputType.multiline,
                 maxLines: 3,
-                onChanged: (value){
+                onChanged: (value) {
                   _value = value;
                 },
                 decoration: InputDecoration(
@@ -95,11 +96,11 @@ class _Plan extends State<PlanWidget> {
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
 // TODO not sure if i want a snack bar. maybe on reflection page.
-    //                  Scaffold.of(context).showSnackBar(
-    //                      SnackBar(
-    //                          content: Text('Processing Data')
-    //                      )
-    //                  );
+                      //                  Scaffold.of(context).showSnackBar(
+                      //                      SnackBar(
+                      //                          content: Text('Processing Data')
+                      //                      )
+                      //                  );
                       var args = Reflection.fromPlan(_plan);
                       args.expectation.answer = _value;
                       Navigator.pushNamed(

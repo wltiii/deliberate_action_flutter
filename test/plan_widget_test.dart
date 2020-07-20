@@ -10,6 +10,8 @@ import 'package:deliberate_action_flutter/src/plan_widget.dart';
 // SEE: https://stackoverflow.com/questions/48498709/widget-test-fails-with-no-mediaquery-widget-found
 // TODO discuss with Richard
 // TODO take in feedback on my posts on the above SOs.
+// TODO if these are going to be used in multiple widget tests, they should
+// be in a common location
 Widget buildTestableWidget(Widget widget) => MediaQuery(
     data: MediaQueryData(),
     child: MaterialApp(home: widget)
