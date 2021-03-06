@@ -34,11 +34,11 @@ class PlanTemplate {
 
   PlanTemplate.fromJson(String json) {
     Map decoded = jsonDecode(json);
-    this.id = decoded['uuid'] ?? null;
-    this.allottedDuration = Duration(minutes: decoded['allottedDuration']);
-    this.name = decoded['name'];
-    this.expectationQuestion = decoded['expectation'];
-    this.hint = decoded['hint'];
-    this.reflectionQuestions = decoded['reflectionQuestions'];
+    id = decoded['uuid'] ?? null;
+    allottedDuration = Duration(minutes: decoded['allottedDuration']);
+    name = decoded['name'];
+    expectationQuestion = decoded['expectation'];
+    hint = decoded['hint'];
+    reflectionQuestions = decoded['reflectionQuestions'];
   }
 }

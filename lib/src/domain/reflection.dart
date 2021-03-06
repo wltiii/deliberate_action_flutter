@@ -46,10 +46,10 @@ class Reflection {
 
   Reflection.fromJson(String json) {
     Map decoded = jsonDecode(json);
-    this.id = decoded['uuid'] ?? null;
-    this.actualDurationSeconds =
+    id = decoded['uuid'] ?? null;
+    actualDurationSeconds =
         Duration(seconds: decoded['actualDurationSeconds']);
-    this.expectation = QuestionAnswer.named(
+    expectation = QuestionAnswer.named(
       question: decoded['expectation']['expectation'],
       answer: decoded['expectationResponse'],
     );
