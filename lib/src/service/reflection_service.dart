@@ -52,7 +52,7 @@ class ReflectionService {
   "updated": "2014-05-31T12:00:00.000Z"
 }''');
 
-  Reflection get(String uuid) {
+  Reflection? get(String uuid) {
     return stubGetResponse(uuid);
   }
 
@@ -60,7 +60,7 @@ class ReflectionService {
     return [reflection1, reflection2];
   }
 
-  Reflection save(Reflection reflection) {
+  Reflection? save(Reflection reflection) {
     if (reflection.id == null) {
       return _stubPostResponse(reflection);
     }
@@ -68,7 +68,7 @@ class ReflectionService {
   return null;
   }
 
-  Reflection stubGetResponse(String uuid) {
+  Reflection? stubGetResponse(String uuid) {
     if (uuid == "10") {
       return reflection1;
     }

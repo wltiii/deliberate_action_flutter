@@ -36,16 +36,16 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
       );
 
       expect(reflection.id, equals("10"));
-      expect(reflection.expectation.question,
+      expect(reflection.expectation!.question,
           equals("What do you plan to accomplish during this session?"));
-      expect(reflection.expectation.answer, equals("Something wonderful"));
-      expect(reflection.reflections.length, equals(3));
-      expect(reflection.reflections[0].question, equals("What happened during the allotted time?"));
-      expect(reflection.reflections[0].answer, equals("My dreams were fulfilled"));
-      expect(reflection.reflections[1].question, equals("What explains the difference?"));
-      expect(reflection.reflections[1].answer, equals("I gave it a shot"));
-      expect(reflection.reflections[2].question, equals("What action can you take to improve outcomes?"));
-      expect(reflection.reflections[2].answer, equals("Use deliberate practice to focus on what is important."));
+      expect(reflection.expectation!.answer, equals("Something wonderful"));
+      expect(reflection.reflections!.length, equals(3));
+      expect(reflection.reflections![0].question, equals("What happened during the allotted time?"));
+      expect(reflection.reflections![0].answer, equals("My dreams were fulfilled"));
+      expect(reflection.reflections![1].question, equals("What explains the difference?"));
+      expect(reflection.reflections![1].answer, equals("I gave it a shot"));
+      expect(reflection.reflections![2].question, equals("What action can you take to improve outcomes?"));
+      expect(reflection.reflections![2].answer, equals("Use deliberate practice to focus on what is important."));
       expect(reflection.allottedDuration, equals(Duration(minutes: 10)));
       expect(reflection.actualDurationSeconds,
           equals(Duration(minutes: 9, seconds: 30)));
@@ -77,20 +77,20 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
       expect(reflection.updated, isNull);
       expect(reflection.userId, isNull);
       expect(reflection.updated, isNull);
-      expect(reflection.expectation.question,
+      expect(reflection.expectation!.question,
           equals("What do you plan to accomplish during this session?"));
-      expect(reflection.expectation.answer, isNull);
-      expect(reflection.reflections.length,
-          equals(template.reflectionQuestions.length));
-      expect(reflection.reflections[0].question,
+      expect(reflection.expectation!.answer, isNull);
+      expect(reflection.reflections!.length,
+          equals(template.reflectionQuestions!.length));
+      expect(reflection.reflections![0].question,
           equals("What happened during the allotted time?"));
-      expect(reflection.reflections[0].answer, isNull);
-      expect(reflection.reflections[1].question,
+      expect(reflection.reflections![0].answer, isNull);
+      expect(reflection.reflections![1].question,
           equals("What explains the difference?"));
-      expect(reflection.reflections[1].answer, isNull);
-      expect(reflection.reflections[2].question,
+      expect(reflection.reflections![1].answer, isNull);
+      expect(reflection.reflections![2].question,
           equals("What action can you take to improve outcomes?"));
-      expect(reflection.reflections[2].answer, isNull);
+      expect(reflection.reflections![2].answer, isNull);
       expect(reflection.allottedDuration, equals(Duration(minutes: 10)));
       expect(reflection.actualDurationSeconds, isNull);
       expect(reflection.name, equals("test 1"));
@@ -126,16 +126,16 @@ import 'package:deliberate_action_flutter/src/domain/reflection.dart';
       final reflection = Reflection.fromJson(json);
 
       expect(reflection.id, equals("10"));
-      expect(reflection.expectation.question,
+      expect(reflection.expectation!.question,
           equals("What do you plan to accomplish during this session?"));
-      expect(reflection.expectation.answer, equals("Do something wonderful"));
-      expect(reflection.reflections.length, equals(3));
-      expect(reflection.reflections[0].question, equals("What happened during the allotted time?"));
-      expect(reflection.reflections[0].answer, equals("I came"));
-      expect(reflection.reflections[1].question, equals("What explains the difference?"));
-      expect(reflection.reflections[1].answer, equals("I saw"));
-      expect(reflection.reflections[2].question, equals("What action can you take to improve outcomes?"));
-      expect(reflection.reflections[2].answer, equals("I conquered"));
+      expect(reflection.expectation!.answer, equals("Do something wonderful"));
+      expect(reflection.reflections!.length, equals(3));
+      expect(reflection.reflections![0].question, equals("What happened during the allotted time?"));
+      expect(reflection.reflections![0].answer, equals("I came"));
+      expect(reflection.reflections![1].question, equals("What explains the difference?"));
+      expect(reflection.reflections![1].answer, equals("I saw"));
+      expect(reflection.reflections![2].question, equals("What action can you take to improve outcomes?"));
+      expect(reflection.reflections![2].answer, equals("I conquered"));
       expect(reflection.allottedDuration, equals(Duration(minutes: 10)));
       expect(reflection.actualDurationSeconds,
           equals(Duration(minutes: 9, seconds: 30)));

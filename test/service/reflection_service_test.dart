@@ -4,18 +4,18 @@ import 'package:deliberate_action_flutter/src/service/reflection_service.dart';
 
 void main() {
   test('gets a reflection', () {
-    final reflection = ReflectionService().get('10');
+    final reflection = ReflectionService().get('10')!;
 
     expect(reflection.id, equals("10"));
     expect(reflection.actualDurationSeconds,
         equals(Duration(minutes: 9, seconds: 30)));
-    expect(reflection.expectation.question,
+    expect(reflection.expectation!.question,
         equals("What do you plan to accomplish during this session?"));
-    expect(reflection.expectation.answer, equals("Do something historical"));
-    expect(reflection.reflections.length, equals(3));
-    expect(reflection.reflections[0].answer, equals('I came'));
-    expect(reflection.reflections[1].answer, equals('I saw'));
-    expect(reflection.reflections[2].answer, equals('I conquered'));
+    expect(reflection.expectation!.answer, equals("Do something historical"));
+    expect(reflection.reflections!.length, equals(3));
+    expect(reflection.reflections![0].answer, equals('I came'));
+    expect(reflection.reflections![1].answer, equals('I saw'));
+    expect(reflection.reflections![2].answer, equals('I conquered'));
   });
 
   test('lists reflections', () {
@@ -46,17 +46,17 @@ void main() {
 //  }
 //}''');
 
-    final reflection = ReflectionService().get('10');
+    final reflection = ReflectionService().get('10')!;
     reflection.id = null;
 
     var before = DateTime.now();
-    final result = ReflectionService().save(reflection);
+    final result = ReflectionService().save(reflection)!;
     var after = DateTime.now();
 
     expect(result, isNotNull);
     expect(result.id, isNotNull);
-    expect(result.updated.compareTo(before), greaterThanOrEqualTo(0));
-    expect(result.updated.compareTo(after), lessThanOrEqualTo(0));
+    expect(result.updated!.compareTo(before), greaterThanOrEqualTo(0));
+    expect(result.updated!.compareTo(after), lessThanOrEqualTo(0));
   });
 
 }

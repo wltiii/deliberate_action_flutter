@@ -8,39 +8,53 @@ import 'service/plan_service.dart';
 class PlanWidget extends StatefulWidget {
   static const routeName = '/expectation';
 
-  PlanWidget({Key key, this.title}) : super(key: key);
+  PlanWidget({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _Plan createState() => _Plan();
 }
 
 class _Plan extends State<PlanWidget> {
-  final PlanTemplate _plan = PlanService().get('1');
-  Reflection _reflection;
+  // TODO hardcoded plan for now
+  final PlanTemplate? _plan = PlanService().get('1');
+  Reflection? _reflection;
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
-  String _value;
+  String? _value;
 
-  toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
+  toHHMMSS(Duration? d) => d.toString().split('.').first.padLeft(8, "0");
 
   @override
   void initState() {
     super.initState();
   }
 
+  // TODO can the setting of a temp variable be removed once allottedDuration is not nullable (if that is possible?)
   void _incrementMinutes() {
     setState(() {
-      _plan.allottedDuration += oneMinute;
+      var duration = _plan!.allottedDuration;
+
+      if (duration != null) {
+        duration += oneMinute;
+      }
+
+      _plan!.allottedDuration = duration;
     });
   }
 
+  // TODO can the setting of a temp variable be removed once allottedDuration is not nullable (if that is possible?)
   void _decrementMinutes() {
     setState(() {
-      if (_plan.allottedDuration > oneMinute) {
-        _plan.allottedDuration -= oneMinute;
+      var duration = _plan!.allottedDuration;
+
+      if (duration != null && _plan!.allottedDuration! > oneMinute) {
+        duration -= oneMinute;
       }
+
+      _plan!.allottedDuration = duration;
+
     });
   }
 
@@ -49,7 +63,7 @@ class _Plan extends State<PlanWidget> {
     return Form(
       key: _formKey,
       child: Scaffold(
-        appBar: AppBar(title: Text(widget.title)),
+        appBar: AppBar(title: Text(widget.title!)),
         body: Center(
           child: Column(
 //            mainAxisAlignment: MainAxisAlignment.center,
@@ -62,10 +76,10 @@ class _Plan extends State<PlanWidget> {
                 },
                 decoration: InputDecoration(
                     icon: Icon(Icons.subject),
-                    labelText: _plan.expectationQuestion,
-                    hintText: _plan.hint),
+                    labelText: _plan!.expectationQuestion,
+                    hintText: _plan!.hint),
                 validator: (value) {
-                  if (value.isEmpty) {
+                  if (value!.isEmpty) {
                     return 'Please enter what you are planning.';
                   }
                   return null;
@@ -75,7 +89,7 @@ class _Plan extends State<PlanWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                      'Time allotted to complete action is ${toHHMMSS(_plan.allottedDuration)}.'),
+                      'Time allotted to complete action is ${toHHMMSS(_plan!.allottedDuration)}.'),
                   IconButton(
                     padding: const EdgeInsets.only(),
                     icon: Icon(Icons.add_circle_outline),
@@ -94,15 +108,15 @@ class _Plan extends State<PlanWidget> {
                 padding: const EdgeInsets.all(16.0),
                 child: RaisedButton(
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {
+                    if (_formKey.currentState!.validate()) {
 // TODO not sure if i want a snack bar. maybe on reflection page.
                       //                  Scaffold.of(context).showSnackBar(
                       //                      SnackBar(
                       //                          content: Text('Processing Data')
                       //                      )
                       //                  );
-                      var args = Reflection.fromPlan(_plan);
-                      args.expectation.answer = _value;
+                      var args = Reflection.fromPlan(_plan!);
+                      args.expectation!.answer = _value;
                       Navigator.pushNamed(
                         context,
                         ActionTimerWidget.routeName,

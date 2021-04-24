@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 class PlanTemplate {
-  String id;
-  String name;
-  Duration allottedDuration;
-  String expectationQuestion;
-  String hint;
-  List reflectionQuestions;
-  String userId;
-  DateTime updated;
+  String? id;
+  String? name;
+  Duration? allottedDuration;
+  String? expectationQuestion;
+  String? hint;
+  List? reflectionQuestions;
+  String? userId;
+  DateTime? updated;
 
   // default parameterized constructor
   // see: https://flutterrdart.com/dart-classes-objects-and-constructors-with-examples/

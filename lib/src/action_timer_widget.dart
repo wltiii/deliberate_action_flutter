@@ -11,26 +11,26 @@ import 'reflection_widget.dart';
 class ActionTimerWidget extends StatefulWidget {
   static const routeName = '/action-timer';
   const ActionTimerWidget({
-    Key key,
+    Key? key,
     this.title,
   }) : super(key: key);
   
-  final String title;
+  final String? title;
   _ActionTimer createState() => _ActionTimer();
 }
 
 class _ActionTimer extends State<ActionTimerWidget> {
   bool _initialized = false;
-  Timer _timer;
-  Duration _timeRemaining;
+  late Timer _timer;
+  Duration? _timeRemaining;
   final Duration _timeout = const Duration(seconds: 1);
   Icon pauseIcon = const Icon(Icons.pause_circle_outline);
   Icon playIcon = const Icon(Icons.play_circle_outline);
-  Icon _pausePlayIcon;
-  String _pausePlayTooltip;
+  Icon? _pausePlayIcon;
+  String? _pausePlayTooltip;
   // TODO: these two functions look like they will be used in multiple 
   //  locations. Consider moving to another class.
-  _toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
+  _toHHMMSS(Duration? d) => d.toString().split('.').first.padLeft(8, "0");
   _toMMSS(Duration d) => d.toString().substring(2, 7);
 
   @override
@@ -47,8 +47,8 @@ class _ActionTimer extends State<ActionTimerWidget> {
 
   void handleTimerEvent(Timer timer) {
     setState(() {
-      _timeRemaining = _timeRemaining - _timeout;
-      if (_timeRemaining.inMilliseconds == 0) {
+      _timeRemaining = _timeRemaining! - _timeout;
+      if (_timeRemaining!.inMilliseconds == 0) {
         print(
           'ALERT NOW - visual and audio and tactile (configurable)');
         _stopTimer();
@@ -72,7 +72,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final Reflection _args = ModalRoute.of(context).settings.arguments;
+    final Reflection _args = ModalRoute.of(context)!.settings.arguments as Reflection;
 
     // TODO this seems wrong. Can it be initialized without this method?
     _initFromArgs(_args);
@@ -86,14 +86,14 @@ class _ActionTimer extends State<ActionTimerWidget> {
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                _args.expectation.question,
+                _args.expectation!.question!,
                 style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
               )
             ),
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: Text(
-                _args.expectation.answer,
+                _args.expectation!.answer!,
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
             ),
@@ -109,7 +109,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
           IconButton(
             padding: const EdgeInsets.only(),
-            icon: _pausePlayIcon,
+            icon: _pausePlayIcon!,
             tooltip: _pausePlayTooltip,
             onPressed: swapPausePlayButton,
           ),

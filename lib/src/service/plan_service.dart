@@ -41,7 +41,7 @@ class PlanService {
   ]
 }''');
 
-  PlanTemplate get(String uuid) {
+  PlanTemplate? get(String uuid) {
     return stubResponse(uuid);
   }
 
@@ -49,7 +49,7 @@ class PlanService {
     return [template1, template2];
   }
 
-  PlanTemplate stubResponse(String uuid) {
+  PlanTemplate? stubResponse(String uuid) {
     if (uuid == "1") {
       return template1;
     }

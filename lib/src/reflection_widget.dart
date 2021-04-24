@@ -9,11 +9,11 @@ import 'plan_widget.dart';
 
 class ReflectionWidget extends StatelessWidget {
   static const routeName = '/reflection';
-  toHHMMSS(Duration d) => d.toString().split('.').first.padLeft(8, "0");
+  toHHMMSS(Duration? d) => d.toString().split('.').first.padLeft(8, "0");
 
   @override
   Widget build(BuildContext context) {
-    final Reflection args = ModalRoute.of(context).settings.arguments;
+    final Reflection args = ModalRoute.of(context)!.settings.arguments as Reflection;
 
     // TODO: implement build
     return Scaffold(
@@ -26,14 +26,14 @@ class ReflectionWidget extends StatelessWidget {
             Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  args.expectation.question,
+                  args.expectation!.question!,
                   style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
                 )
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                args.expectation.answer,
+                args.expectation!.answer!,
                 style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal),
               ),
             ),
@@ -45,7 +45,7 @@ class ReflectionWidget extends StatelessWidget {
               )
             ),
             Column(
-              children: args.reflections.map((reflection) =>
+              children: args.reflections!.map((reflection) =>
                   _buildReflections(reflection.question)).toList(),
             ),
             Padding(
@@ -70,7 +70,7 @@ class ReflectionWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildReflections(String question) {
+  Widget _buildReflections(String? question) {
     // TODO should this be a Card, a ListTile, or TextFormField?
     // TODO if ListTile, should it be ListTile.divideTiles?
     // TODO need to capture the input

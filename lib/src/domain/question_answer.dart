@@ -1,6 +1,6 @@
 class QuestionAnswer {
-  String question;
-  String answer;
+  String? question;
+  String? answer;
 
   // TODO use default parameterized constructor (Map constructor)?
   // see: https://flutterrdart.com/dart-classes-objects-and-constructors-with-examples/
@@ -21,5 +21,5 @@ class QuestionAnswer {
 
   // a redirecting constructor
   // see: https://dart.dev/guides/language/language-tour#using-constructors
-  QuestionAnswer.withQuestion(String question) : this(question, null);
+  QuestionAnswer.withQuestion(String? question) : this(question, null);
 }

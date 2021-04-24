@@ -4,19 +4,19 @@ import 'plan_template.dart';
 import 'question_answer.dart';
 
 class Reflection {
-  String id;
-  QuestionAnswer expectation;
-  List<QuestionAnswer> reflections;
-  Duration allottedDuration;
-  Duration actualDurationSeconds;
+  String? id;
+  QuestionAnswer? expectation;
+  List<QuestionAnswer>? reflections;
+  Duration? allottedDuration;
+  Duration? actualDurationSeconds;
   // TODO what happens if the expectation template changes?
   //  TODO i.e. reflections, etc. might possibly not align
   // TODO What about searching? Wouldn't it be by name?
 //  ExpectationTemplate expectationTemplate;
-  String name;
-  String expectationId;
-  String userId;
-  DateTime updated;
+  String? name;
+  String? expectationId;
+  String? userId;
+  DateTime? updated;
 
   // default constructor using named arguments
   // see: https://flutterigniter.com/deconstructing-dart-constructors/
@@ -36,8 +36,8 @@ class Reflection {
     expectation = QuestionAnswer.withQuestion(template.expectationQuestion);
     // TODO can reflections be instantiated in a one-liner?
     reflections = [];
-    template.reflectionQuestions.forEach((reflection) {
-      reflections.add(QuestionAnswer.withQuestion(reflection));
+    template.reflectionQuestions!.forEach((reflection) {
+      reflections!.add(QuestionAnswer.withQuestion(reflection));
     });
     allottedDuration = template.allottedDuration;
     name = template.name;
@@ -56,12 +56,12 @@ class Reflection {
 
     reflections = [];
     decoded['expectation']['reflectionQuestions'].forEach((question) {
-      reflections.add(QuestionAnswer.withQuestion(question));
+      reflections!.add(QuestionAnswer.withQuestion(question));
     });
 
-    List responses = decoded['reflectionResponses'];
-    for(var i = 0; i < reflections.length; i++) {
-      reflections[i].answer = i < reflections.length ? responses[i] : null;
+    List? responses = decoded['reflectionResponses'];
+    for(var i = 0; i < reflections!.length; i++) {
+      reflections![i].answer = i < reflections!.length ? responses![i] : null;
     }
 
     allottedDuration =
