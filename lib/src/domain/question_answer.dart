@@ -2,9 +2,7 @@ class QuestionAnswer {
   String question;
   String answer;
 
-  // TODO discuss these constructor styles with Richard
-
-  // default parameterized constructor
+  // TODO use default parameterized constructor (Map constructor)?
   // see: https://flutterrdart.com/dart-classes-objects-and-constructors-with-examples/
   QuestionAnswer(
     this.question,
