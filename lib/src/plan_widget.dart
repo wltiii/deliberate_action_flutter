@@ -34,27 +34,34 @@ class _Plan extends State<PlanWidget> {
   // TODO can the setting of a temp variable be removed once allottedDuration is not nullable (if that is possible?)
   void _incrementMinutes() {
     setState(() {
-      var duration = _plan!.allottedDuration;
+      // UGLY
+      // var duration = _plan!.allottedDuration;
+      //
+      // if (duration != null) {
+      //   duration += oneMinute;
+      // }
+      //
+      // _plan!.allottedDuration = duration;
 
-      if (duration != null) {
-        duration += oneMinute;
-      }
+      // FAILS
+      // _plan?.allottedDuration =
+      //     (_plan?.allottedDuration ?? Duration.zero);
 
-      _plan!.allottedDuration = duration;
+      // SYNTAX ERROR
+      // _plan?.allottedDuration = (_plan?.allottedDuration ?? 0) + oneMinute;
+      //
+      _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration)
+          + oneMinute;
     });
   }
 
   // TODO can the setting of a temp variable be removed once allottedDuration is not nullable (if that is possible?)
   void _decrementMinutes() {
     setState(() {
-      var duration = _plan!.allottedDuration;
-
-      if (duration != null && _plan!.allottedDuration! > oneMinute) {
-        duration -= oneMinute;
+      if (_plan!.allottedDuration! > oneMinute) {
+        _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration)
+            - oneMinute;
       }
-
-      _plan!.allottedDuration = duration;
-
     });
   }
 
