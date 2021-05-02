@@ -22,7 +22,7 @@ Widget makeTestableWidget(Widget child) {
 }
 
 void main() {
-  testWidgets('tests plan widget', (WidgetTester tester) async {
+  testWidgets('tests plan widget', (tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
         makeTestableWidget(

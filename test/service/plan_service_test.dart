@@ -4,7 +4,7 @@ import 'package:deliberate_action_flutter/src/service/plan_service.dart';
 
 void main() {
   test('gets a template', () {
-    final template = new PlanService().get('1')!;
+    final template = PlanService().get('1');
 
     expect(template.id, equals("1"));
     expect(template.expectationQuestion,

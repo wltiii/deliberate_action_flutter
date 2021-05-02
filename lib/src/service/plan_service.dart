@@ -1,4 +1,4 @@
-import 'package:deliberate_action_flutter/src/domain/plan_template.dart';
+import '../domain/plan_template.dart';
 
 class PlanService {
 

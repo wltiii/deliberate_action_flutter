@@ -8,7 +8,7 @@ Widget makeTestableWidget(Widget child) {
 }
 
 void main() {
-  testWidgets('tests action timer', (WidgetTester tester) async {
+  testWidgets('tests action timer', (tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
         makeTestableWidget(
