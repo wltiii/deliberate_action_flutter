@@ -73,7 +73,6 @@ class _Plan extends State<PlanWidget> {
         appBar: AppBar(title: Text(widget.title!)),
         body: Center(
           child: Column(
-//            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
                 keyboardType: TextInputType.multiline,

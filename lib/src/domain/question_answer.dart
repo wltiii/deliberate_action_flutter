@@ -1,5 +1,5 @@
 class QuestionAnswer {
-  String? question;
+  String question;
   String? answer;
 
   // TODO use default parameterized constructor (Map constructor)?
@@ -15,11 +15,11 @@ class QuestionAnswer {
   // TODO constructor? I think I prefer the latter.
   // TODO Is there a style check that would enforce default using named args?
   QuestionAnswer.named({
-    this.question,
+    required this.question,
     this.answer,
   });
 
   // a redirecting constructor
   // see: https://dart.dev/guides/language/language-tour#using-constructors
-  QuestionAnswer.withQuestion(String? question) : this(question, null);
+  QuestionAnswer.withQuestion(String question) : this(question, null);
 }
