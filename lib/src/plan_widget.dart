@@ -50,8 +50,7 @@ class _Plan extends State<PlanWidget> {
       // SYNTAX ERROR
       // _plan?.allottedDuration = (_plan?.allottedDuration ?? 0) + oneMinute;
       //
-      _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration)
-          + oneMinute;
+      _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration) + oneMinute;
     });
   }
 
@@ -59,8 +58,7 @@ class _Plan extends State<PlanWidget> {
   void _decrementMinutes() {
     setState(() {
       if (_plan!.allottedDuration! > oneMinute) {
-        _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration)
-            - oneMinute;
+        _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration) - oneMinute;
       }
     });
   }
@@ -94,8 +92,7 @@ class _Plan extends State<PlanWidget> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                      'Time allotted to complete action is ${toHHMMSS(_plan!.allottedDuration)}.'),
+                  Text('Time allotted to complete action is ${toHHMMSS(_plan!.allottedDuration)}.'),
                   IconButton(
                     padding: const EdgeInsets.only(),
                     icon: Icon(Icons.add_circle_outline),
@@ -112,7 +109,7 @@ class _Plan extends State<PlanWidget> {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
 // TODO not sure if i want a snack bar. maybe on reflection page.

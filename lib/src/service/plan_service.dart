@@ -1,7 +1,6 @@
 import '../domain/plan_template.dart';
 
 class PlanService {
-
   final template1 = PlanTemplate.fromJson('''{
   "uuid": "1",
   "name": "test 1",
@@ -41,7 +40,7 @@ class PlanService {
   ]
 }''');
 
-  PlanTemplate? get(String uuid) {
+  PlanTemplate get(String uuid) {
     return stubResponse(uuid);
   }
 
@@ -49,7 +48,10 @@ class PlanService {
     return [template1, template2];
   }
 
-  PlanTemplate? stubResponse(String uuid) {
+  // this is a stub (of course) - with Not Null By Default, I
+  // am approaching this by making _invalid states unrepresentable_.
+  // Therefor, this will return a valid object *always*.
+  PlanTemplate stubResponse(String uuid) {
     if (uuid == "1") {
       return template1;
     }
@@ -59,10 +61,6 @@ class PlanService {
     if (uuid == "3") {
       return template3;
     }
-    return null;
+    return template1;
   }
-
-
-
-
 }
