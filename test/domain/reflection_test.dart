@@ -1,8 +1,7 @@
 import 'package:deliberate_action_flutter/src/domain/plan_template.dart';
 import 'package:deliberate_action_flutter/src/domain/question_answer.dart';
-import 'package:test/test.dart';
-
 import 'package:deliberate_action_flutter/src/domain/reflection.dart';
+import 'package:test/test.dart';
 
   void main() {
     test('instantiates from named constructor', () {

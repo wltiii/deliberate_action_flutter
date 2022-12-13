@@ -19,7 +19,6 @@ class PlanWidget extends StatefulWidget {
 class _Plan extends State<PlanWidget> {
   // TODO hardcoded plan for now
   final PlanTemplate? _plan = PlanService().get('1');
-  Reflection? _reflection;
   final _formKey = GlobalKey<FormState>();
   Duration oneMinute = const Duration(minutes: 1);
   String? _value;
@@ -31,34 +30,18 @@ class _Plan extends State<PlanWidget> {
     super.initState();
   }
 
-  // TODO can the setting of a temp variable be removed once allottedDuration is not nullable (if that is possible?)
   void _incrementMinutes() {
     setState(() {
-      // UGLY
-      // var duration = _plan!.allottedDuration;
-      //
-      // if (duration != null) {
-      //   duration += oneMinute;
-      // }
-      //
-      // _plan!.allottedDuration = duration;
-
-      // FAILS
-      // _plan?.allottedDuration =
-      //     (_plan?.allottedDuration ?? Duration.zero);
-
-      // SYNTAX ERROR
-      // _plan?.allottedDuration = (_plan?.allottedDuration ?? 0) + oneMinute;
-      //
-      _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration) + oneMinute;
+      _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration)
+          + oneMinute;
     });
   }
 
-  // TODO can the setting of a temp variable be removed once allottedDuration is not nullable (if that is possible?)
   void _decrementMinutes() {
     setState(() {
       if (_plan!.allottedDuration! > oneMinute) {
-        _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration) - oneMinute;
+        _plan?.allottedDuration = ((_plan?.allottedDuration ?? 0) as Duration)
+            - oneMinute;
       }
     });
   }
@@ -92,7 +75,9 @@ class _Plan extends State<PlanWidget> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Time allotted to complete action is ${toHHMMSS(_plan!.allottedDuration)}.'),
+                  Text(
+                      'Time allotted to complete action is ${toHHMMSS(_plan!
+                          .allottedDuration)}.',),
                   IconButton(
                     padding: const EdgeInsets.only(),
                     icon: Icon(Icons.add_circle_outline),
@@ -112,12 +97,7 @@ class _Plan extends State<PlanWidget> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-// TODO not sure if i want a snack bar. maybe on reflection page.
-                      //                  Scaffold.of(context).showSnackBar(
-                      //                      SnackBar(
-                      //                          content: Text('Processing Data')
-                      //                      )
-                      //                  );
+                      // TODO add snack bar - reflection page only?
                       var args = Reflection.fromPlan(_plan!);
                       args.expectation!.answer = _value;
                       Navigator.pushNamed(

@@ -36,9 +36,9 @@ class Reflection {
     expectation = QuestionAnswer.withQuestion(template.expectationQuestion);
     // TODO can reflections be instantiated in a one-liner?
     reflections = [];
-    template.reflectionQuestions!.forEach((reflection) {
+    for (var reflection in template.reflectionQuestions!) {
       reflections!.add(QuestionAnswer.withQuestion(reflection));
-    });
+    }
     allottedDuration = template.allottedDuration;
     name = template.name;
     expectationId = template.id;

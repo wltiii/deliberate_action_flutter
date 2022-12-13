@@ -1,7 +1,6 @@
+import 'package:deliberate_action_flutter/src/action_timer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:deliberate_action_flutter/src/action_timer_widget.dart';
 
 Widget makeTestableWidget(Widget child) {
   return MaterialApp(home: child);

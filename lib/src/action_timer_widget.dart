@@ -28,10 +28,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
   Icon playIcon = const Icon(Icons.play_circle_outline);
   Icon? _pausePlayIcon;
   String? _pausePlayTooltip;
-  // TODO: these two functions look like they will be used in multiple 
-  //  locations. Consider moving to another class.
   _toHHMMSS(Duration? d) => d.toString().split('.').first.padLeft(8, "0");
-  _toMMSS(Duration d) => d.toString().substring(2, 7);
 
   @override
   void initState() {
@@ -72,7 +69,7 @@ class _ActionTimer extends State<ActionTimerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final Reflection _args = ModalRoute.of(context)!.settings.arguments as Reflection;
+    final _args = ModalRoute.of(context)!.settings.arguments as Reflection;
 
     // TODO this seems wrong. Can it be initialized without this method?
     _initFromArgs(_args);
@@ -86,14 +83,14 @@ class _ActionTimer extends State<ActionTimerWidget> {
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                _args.expectation!.question!,
+                _args.expectation!.question,
                 style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
               )
             ),
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: Text(
-                _args.expectation!.answer!,
+                _args.expectation!.answer ?? '',
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
             ),

@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:deliberate_action_flutter/src/plan_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:deliberate_action_flutter/src/plan_widget.dart';
 
 // TODO are either of these two options superior? The latter is simpler
 // for sources for these two methods

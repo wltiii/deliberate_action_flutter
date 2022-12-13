@@ -1,0 +1,38 @@
+= Engineering Notes
+
+== TODOs
+. Consider a configurable template hierarchy for organization
+.. How many levels
+.. Require top level
+.. Searchable by node name
+
+Rather than doing below, top level could hold a list.
+
+----
+class Node {
+    Node(Node parent, name, description) {
+    }
+
+    int get level => _parent.level
+
+    int addChild(Node child)
+
+    void remove() {
+        parent.child = child
+    }
+}
+----
+
+== Issues
+Startup thows a bunch of errors. The following may prove useful for resolution.
+
+https://stackoverflow.com/questions/62991298/android-studio-flutter-no-connected-devices
+https://docs.flutter.dev/get-started/install/linux
+
+Installation:
+Standard
+SDK Folder: /home/worldwidewilly/Android/Sdk
+JDK Location: /opt/android-studio-2021.3.1/android-studio/jre <- This seems somewhat suspicious.
+
+
+/home/worldwidewilly/Android/Sdk

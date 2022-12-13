@@ -1,5 +1,4 @@
 import 'package:deliberate_action_flutter/src/domain/plan_template.dart';
-import 'package:deliberate_action_flutter/src/domain/question_answer.dart';
 import 'package:test/test.dart';
 
   void main() {
@@ -108,7 +107,9 @@ import 'package:test/test.dart';
       expect(template.id, isNull);
       expect(template.name, isNull);
       expect(template.allottedDuration, equals(Duration.zero));
-      expect(template.expectationQuestion, equals('What is your favorite color?'));
+      expect(template.expectationQuestion, equals(
+        'What is your favorite color?'
+      ));
       expect(template.hint, isNull);
       expect(template.reflectionQuestions, isNull);
       expect(template.userId, isNull);

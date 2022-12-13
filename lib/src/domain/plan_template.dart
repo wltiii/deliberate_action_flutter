@@ -34,16 +34,16 @@ class PlanTemplate {
   PlanTemplate.fromJson(String json) {
     Map decoded = jsonDecode(json);
 
-    this.id = decoded['uuid'] ?? null;
-    this.name = decoded['name'];
-    this.allottedDuration =  decoded['allottedDuration'] != null ?
+    id = decoded['uuid'] ?? null;
+    name = decoded['name'];
+    allottedDuration =  decoded['allottedDuration'] != null ?
       Duration(minutes: decoded['allottedDuration']) :
       Duration.zero;
-    this.expectationQuestion = decoded['expectation'] ?? '';
-    this.hint = decoded['hint'];
-    this.reflectionQuestions = decoded['reflectionQuestions'];
-    this.userId = decoded['userId'];
-    this.updated = decoded['updated'] !=  null ?
+    expectationQuestion = decoded['expectation'] ?? '';
+    hint = decoded['hint'];
+    reflectionQuestions = decoded['reflectionQuestions'];
+    userId = decoded['userId'];
+    updated = decoded['updated'] !=  null ?
       DateTime.parse(decoded['updated']) :
       null;
   }

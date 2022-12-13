@@ -13,7 +13,7 @@ class ReflectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Reflection args = ModalRoute.of(context)!.settings.arguments as Reflection;
+    final args = ModalRoute.of(context)!.settings.arguments as Reflection;
 
     // TODO: implement build
     return Scaffold(
@@ -26,7 +26,7 @@ class ReflectionWidget extends StatelessWidget {
             Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  args.expectation!.question!,
+                  args.expectation!.question,
                   style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
                 )
             ),

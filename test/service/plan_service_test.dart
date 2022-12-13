@@ -1,10 +1,10 @@
-import 'package:test/test.dart';
 import 'package:deliberate_action_flutter/src/service/plan_service.dart';
+import 'package:test/test.dart';
 
 
 void main() {
   test('gets a template', () {
-    final template = PlanService().get('1')!;
+    final template = PlanService().get('1');
 
     expect(template.id, equals("1"));
     expect(template.expectationQuestion,
